@@ -4,7 +4,7 @@
     "description": "A package to send rich MIME emails.",
     "keywords": [ "MIME", "emailing" ],
     "homepage": "https://github.com/atelierspierrot/mime-mailer",
-    "version": "0.0.1-dev",
+    "version": "0.0.1",
     "license": "GPL-3.0",
     "authors": [{
         "name": "Les Ateliers Pierrot & contributors",
