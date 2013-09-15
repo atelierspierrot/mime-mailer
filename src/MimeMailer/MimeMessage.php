@@ -1,13 +1,13 @@
 <?php
 /**
- * MimeEmail - PHP package to send full emails
+ * MimeMailer - PHP package to send rich MIME emails
  * Copyleft (c) 2013 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/mime-email>
+ * Sources <https://github.com/atelierspierrot/mime-mailer>
  */
 
-namespace MimeEmail;
+namespace MimeMailer;
 
 use \Library\Converter\Html2Text;
 
@@ -234,7 +234,7 @@ class MimeMessage
 	 *
 	 * @return self
 	 *
-	 * @see \MimeEmail\MimeEmail::checkPeopleArgs
+	 * @see \MimeMailer\MimeEmail::checkPeopleArgs
 	 */
     public function setFrom($mail = '', $name = null, $reply = true) 
     {
@@ -258,12 +258,12 @@ class MimeMessage
 	 *
 	 * @return self
 	 *
-	 * @see \MimeEmail\MimeEmail::checkPeopleArgs
+	 * @see \MimeMailer\MimeEmail::checkPeopleArgs
 	 */
     public function setTo($mail = '', $name = null) 
     {
     	$this->to = Helper::deduplicate(
-    		array_merge($this->to, call_user_func_array(array('\MimeEmail\Helper', 'checkPeopleArgs'), func_get_args()))
+    		array_merge($this->to, call_user_func_array(array('\MimeMailer\Helper', 'checkPeopleArgs'), func_get_args()))
     	);
     	return $this;
     }
@@ -276,12 +276,12 @@ class MimeMessage
 	 *
 	 * @return self
 	 *
-	 * @see \MimeEmail\MimeEmail::checkPeopleArgs
+	 * @see \MimeMailer\MimeEmail::checkPeopleArgs
 	 */
     public function setCc($mail = '', $name = null) 
     {
     	$this->cc = Helper::deduplicate(
-    		array_merge($this->cc, call_user_func_array(array('\MimeEmail\Helper', 'checkPeopleArgs'), func_get_args()))
+    		array_merge($this->cc, call_user_func_array(array('\MimeMailer\Helper', 'checkPeopleArgs'), func_get_args()))
     	);
     	return $this;
     }
@@ -294,12 +294,12 @@ class MimeMessage
 	 *
 	 * @return self
 	 *
-	 * @see \MimeEmail\MimeEmail::checkPeopleArgs
+	 * @see \MimeMailer\MimeEmail::checkPeopleArgs
 	 */
     public function setBcc($mail = '', $name = null) 
     {
     	$this->bcc = Helper::deduplicate(
-    		array_merge($this->bcc, call_user_func_array(array('\MimeEmail\Helper', 'checkPeopleArgs'), func_get_args()))
+    		array_merge($this->bcc, call_user_func_array(array('\MimeMailer\Helper', 'checkPeopleArgs'), func_get_args()))
     	);
     	return $this;
     }

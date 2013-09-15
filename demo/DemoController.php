@@ -130,7 +130,7 @@ class DemoController
         $ok_email = false;
 
         // MimeEmail object
-        $sender = \MimeEmail\Mailer::getInstance();
+        $sender = \MimeMailer\Mailer::getInstance();
         
         // from
         $posted_sender = $this->isPosted('sender');

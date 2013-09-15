@@ -1,13 +1,13 @@
 <?php
 /**
- * MimeEmail - PHP package to send full emails
+ * MimeMailer - PHP package to send rich MIME emails
  * Copyleft (c) 2013 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/mime-email>
+ * Sources <https://github.com/atelierspierrot/mime-mailer>
  */
 
-namespace MimeEmail;
+namespace MimeMailer;
 
 use \Patterns\Abstracts\AbstractSingleton;
 use \Patterns\Interfaces\OptionableInterface;
@@ -25,7 +25,7 @@ class Mailer
 // --------------------
 // Constants
 // --------------------
-	const MM_CLASSNAME = "MimeEmail package";
+	const MM_CLASSNAME = "MimeMailer package";
 	const MM_CLASSVERSION = "0.1";
 	const BOUNDARY_OPENER = "--";
 	const BOUNDARY_CLOSER = "--";
@@ -89,9 +89,9 @@ class Mailer
 			'X-Priority'=>'3',
 		),
 		'defaults'=>array(
-		    'transporter' => '\MimeEmail\Transport\MailTransport',
-		    'messager' => '\MimeEmail\MimeMessage',
-		    'spooler' => '\MimeEmail\SpoolManager',
+		    'transporter' => '\MimeMailer\Transport\MailTransport',
+		    'messager' => '\MimeMailer\MimeMessage',
+		    'spooler' => '\MimeMailer\SpoolManager',
 		),
 //		'charset' => 'iso-8859-1',
         'charset' => 'utf-8',

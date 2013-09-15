@@ -1,16 +1,16 @@
 <?php
 /**
- * MimeEmail - PHP package to send full emails
+ * MimeMailer - PHP package to send rich MIME emails
  * Copyleft (c) 2013 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/mime-email>
+ * Sources <https://github.com/atelierspierrot/mime-mailer>
  */
 
-namespace MimeEmail\Transport;
+namespace MimeMailer\Transport;
 
-use \MimeEmail\Mailer;
-use \MimeEmail\TransportInterface;
+use \MimeMailer\Mailer;
+use \MimeMailer\TransportInterface;
 
 /*
 PHP Mail function :
