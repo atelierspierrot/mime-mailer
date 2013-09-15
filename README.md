@@ -1,4 +1,7 @@
-mime-email
-==========
+MIME Mailer
+===========
 
-A PHP class to send full emails.
+A PHP package to send rich MIME emails.
+
+## Usage
+

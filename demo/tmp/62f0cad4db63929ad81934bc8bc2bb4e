@@ -1,0 +1,31 @@
+a:5:{s:2:"to";s:22:"piero.wbmstr@gmail.com";s:7:"subject";s:63:"The subject of this test message with special chars : é à ...";s:7:"message";s:0:"";s:18:"additional_headers";s:1148:"From: "mister Tester" <the_tester@system.fr>
+To: piero.wbmstr@gmail.com
+Cc: "yo" <pierre.cassat@gmail.com>, "PieroFree" <pierrecassat@free.fr>
+X-Mailer: PHP 5.3.27 - MimeEmail package 0.1
+Return-Path: <the_tester@system.fr>
+X-Sender: the_tester@system.fr
+Reply-To: "mister Tester" <the_tester@system.fr>
+Message-Id: <1379243817_2143773984_70387dd1ad0f520c844003c09fa72b6a@mail.class>
+Content-Type: multipart/alternative; 
+	boundary="=_MimeMailerClass_4df4d250264e92ec547b70a847b38d6f.137924381752359729cb564"
+This is a multi-part message in MIME format.
+
+--=_MimeMailerClass_4df4d250264e92ec547b70a847b38d6f.137924381752359729cb564
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+
+Hello dude !
+My line 1 with special chars : é à
+Line 2
+Line 3
+
+
+--=_MimeMailerClass_4df4d250264e92ec547b70a847b38d6f.137924381752359729cb564
+Content-Transfer-Encoding: 8bit
+Content-Type: text/html; charset="utf-8"
+
+Hello dude !
+<br /><table><tr><td><b>My line 1 with special chars : &Atilde;&copy;
+&Atilde;&nbsp;</b></td><td>Line 2</td><td>Line 3</tr></table>
+--=_MimeMailerClass_4df4d250264e92ec547b70a847b38d6f.137924381752359729cb564--
+";s:21:"additional_parameters";s:0:"";}

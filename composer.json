@@ -1,0 +1,23 @@
+{
+    "name": "atelierspierrot/mime-email",
+    "type": "library",
+    "description": "A package to send full emails.",
+    "keywords": [ "MIME", "emailing" ],
+    "homepage": "https://github.com/atelierspierrot/mime-email",
+    "version": "0.0.1",
+    "license": "GPL-3.0",
+    "authors": [{
+            "name": "Les Ateliers Pierrot & contributors",
+            "email": "contact@ateliers-pierrot.fr",
+            "homepage": "http://www.ateliers-pierrot.fr/"
+    }],
+    "require": {
+        "php": ">=5.3.0",
+        "atelierspierrot/patterns": "dev-master",
+        "atelierspierrot/library": "dev-master",
+        "atelierspierrot/validators": "dev-master"
+    },
+    "autoload": { 
+        "psr-0": { "MimeEmail": "src" }
+    }
+}
