@@ -15,7 +15,7 @@ Icon
 composer.lock
 
 # the documentation, that is NOT under version-control
-phpdoc/*
+#phpdoc/*
 
 # the external packages installed by Composer
 vendor/*

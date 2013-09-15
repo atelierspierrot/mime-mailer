@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>MimeMailer\MimeMessage | </title>
+                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../classes.html">Classes</a></li>
+                            <li><a href="../namespaces.html">Namespaces</a></li>
+                        <li><a href="../interfaces.html">Interfaces</a></li>
+            <li><a href="../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href="../MimeMailer.html">MimeMailer</a>\MimeMessage</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>MimeMessage</strong>        extends <a href="../MimeMailer/AbstractMailerAware.html"><abbr title="MimeMailer\AbstractMailerAware">AbstractMailerAware</abbr></a>        implements
+        <a href="../MimeMailer/MessageInterface.html"><abbr title="MimeMailer\MessageInterface">MessageInterface</abbr></a></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getMailer">getMailer</a>()
+                    <p>Get the mailer instance</p>
+                </td>
+                <td><small>from&nbsp;<a href="../MimeMailer/AbstractMailerAware.html#method_getMailer"><abbr title="MimeMailer\AbstractMailerAware">AbstractMailerAware</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $from_name = &#039;&#039;, string $from_mail = null, string|array $to = null, string $subject = null, string $message = null)
+                    <p>Construction of a MimeEmail object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_set">set</a>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $val)
+                    <p>Global setter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="MimeMailer\misc">misc</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_get">get</a>(string $name)
+                    <p>Global getter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_clear">clear</a>(string $name = null)
+                    <p>Global variable clearer</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getFormated">getFormated</a>(string $name)
+                    <p>Get a fromated address info (name <email>) for <code>$name</code> field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getId">getId</a>()
+                    <p>Get message ID</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setFrom">setFrom</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null, bool $reply = true)
+                    <p>Set From field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setTo">setTo</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set To field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setCc">setCc</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set Cc field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setBcc">setBcc</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set Bcc field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setAttachment">setAttachment</a>($file = &#039;&#039;, $clear = false)
+                    <p>Set mail file attachment</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setSubject">setSubject</a>(string $subject = &#039;&#039;, bool $clear = false)
+                    <p>Set mail object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setText">setText</a>(string $text = &#039;&#039;, bool $clear = false)
+                    <p>Set plain text version</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setHtml">setHtml</a>(string $html = &#039;&#039;, bool $clear = false)
+                    <p>Set HTML version</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setReplyTo">setReplyTo</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set Reply-To header field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setFollowupTo">setFollowupTo</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set Foolowup-To header field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setErrorsTo">setErrorsTo</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set Errors-To header field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setDispositionNotificationTo">setDispositionNotificationTo</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set Disposition-Notification-To header field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setAbuseReportsTo">setAbuseReportsTo</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set Abuse-Reports-To header field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setReturnReceiptTo">setReturnReceiptTo</a>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)
+                    <p>Set Return-Receipt-To header field</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getMessage">getMessage</a>()
+                    <p>Get sent built message</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_buildMessage">buildMessage</a>()
+                    <p>Message builder</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_makeBoundary">makeBoundary</a>()
+                    <p>Build a boundary value</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_substitution">substitution</a>(string $search, string $replace)
+                    <p>Make a basic substitution in the object body</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_getMailer">
+        <div class="location">in <a href="../MimeMailer/AbstractMailerAware.html#method_getMailer"><abbr title="MimeMailer\AbstractMailerAware">AbstractMailerAware</abbr></a> at line 25</div>
+        <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
+    <strong>getMailer</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the mailer instance</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___construct">
+        <div class="location">at line 102</div>
+        <code>            public            
+    <strong>__construct</strong>(string $from_name = &#039;&#039;, string $from_mail = null, string|array $to = null, string $subject = null, string $message = null)</code>
+    </h3>
+    <div class="details">
+        <p>Construction of a MimeEmail object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$from_name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$from_mail</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>string|array</td>
+                <td>$to</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$subject</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_set">
+        <div class="location">at line 163</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>set</strong>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $val)</code>
+    </h3>
+    <div class="details">
+        <p>Global setter</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\misc">misc</abbr></td>
+                <td>$val</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_get">
+        <div class="location">at line 178</div>
+        <code>            public            <abbr title="MimeMailer\misc">misc</abbr>
+    <strong>get</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Global getter</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_clear">
+        <div class="location">at line 190</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>clear</strong>(string $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Global variable clearer</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFormated">
+        <div class="location">at line 212</div>
+        <code>            public            string
+    <strong>getFormated</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Get a fromated address info (name <email>) for <code>$name</code> field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getId">
+        <div class="location">at line 223</div>
+        <code>            public            string
+    <strong>getId</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get message ID</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setFrom">
+        <div class="location">at line 239</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setFrom</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null, bool $reply = true)</code>
+    </h3>
+    <div class="details">
+        <p>Set From field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$reply</td>
+                <td>Set the "reply-to" to the same address ? (default is TRUE)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\MimeMailer\MimeEmail::checkPeopleArgs</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_setTo">
+        <div class="location">at line 263</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set To field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\MimeMailer\MimeEmail::checkPeopleArgs</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_setCc">
+        <div class="location">at line 281</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setCc</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set Cc field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\MimeMailer\MimeEmail::checkPeopleArgs</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_setBcc">
+        <div class="location">at line 299</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setBcc</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set Bcc field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\MimeMailer\MimeEmail::checkPeopleArgs</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_setAttachment">
+        <div class="location">at line 315</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setAttachment</strong>($file = &#039;&#039;, $clear = false)</code>
+    </h3>
+    <div class="details">
+        <p>Set mail file attachment</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$file</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$clear</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setSubject">
+        <div class="location">at line 342</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setSubject</strong>(string $subject = &#039;&#039;, bool $clear = false)</code>
+    </h3>
+    <div class="details">
+        <p>Set mail object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$subject</td>
+                <td>The subject content</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$clear</td>
+                <td>Clear a setted content first ? (default is to append a content)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setText">
+        <div class="location">at line 361</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setText</strong>(string $text = &#039;&#039;, bool $clear = false)</code>
+    </h3>
+    <div class="details">
+        <p>Set plain text version</p>
+        <p>If $text='auto', the text version will be generated from the HTML content</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$text</td>
+                <td>The plain text content or keyword 'auto' to auto-generate it from the HTML content</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$clear</td>
+                <td>Clear a setted content first ? (default is to append a content)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setHtml">
+        <div class="location">at line 385</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setHtml</strong>(string $html = &#039;&#039;, bool $clear = false)</code>
+    </h3>
+    <div class="details">
+        <p>Set HTML version</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$html</td>
+                <td>The HTML content</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$clear</td>
+                <td>Clear a setted content first ? (default is to append a content)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setReplyTo">
+        <div class="location">at line 402</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setReplyTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set Reply-To header field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setFollowupTo">
+        <div class="location">at line 423</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setFollowupTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set Foolowup-To header field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setErrorsTo">
+        <div class="location">at line 444</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setErrorsTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set Errors-To header field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setDispositionNotificationTo">
+        <div class="location">at line 465</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setDispositionNotificationTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set Disposition-Notification-To header field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setAbuseReportsTo">
+        <div class="location">at line 486</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setAbuseReportsTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set Abuse-Reports-To header field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setReturnReceiptTo">
+        <div class="location">at line 509</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>setReturnReceiptTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set Return-Receipt-To header field</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="MimeMailer\string/array">string/array</abbr></td>
+                <td>$mail</td>
+                <td>The email address to add, or an array of name=>email pairs</td>
+            </tr>
+                    <tr>
+                <td><abbr title="MimeMailer\string/bool">string/bool</abbr></td>
+                <td>$name</td>
+                <td>The name to show for the email address if there is just one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMessage">
+        <div class="location">at line 527</div>
+        <code>            public            string
+    <strong>getMessage</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get sent built message</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_buildMessage">
+        <div class="location">at line 541</div>
+        <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
+    <strong>buildMessage</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Message builder</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_makeBoundary">
+        <div class="location">at line 664</div>
+        <code>            public            string
+    <strong>makeBoundary</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Build a boundary value</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The generated boundary</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_substitution">
+        <div class="location">at line 677</div>
+        <code>            public            string
+    <strong>substitution</strong>(string $search, string $replace)</code>
+    </h3>
+    <div class="details">
+        <p>Make a basic substitution in the object body</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$search</td>
+                <td>The string to search</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$replace</td>
+                <td>The string to use for replacement</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The generated body</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
