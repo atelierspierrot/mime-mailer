@@ -2,7 +2,7 @@
 /**
  * Application documentation builder
  *
- * See https://github.com/fabpot/Sami
+ * See http://github.com/fabpot/Sami
  *
  * To build doc, run:
  *     $ php vendor/sami/sami/sami.php render sami.config.php
