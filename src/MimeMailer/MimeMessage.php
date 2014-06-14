@@ -1,10 +1,10 @@
 <?php
 /**
  * MimeMailer - PHP package to send rich MIME emails
- * Copyleft (c) 2013 Pierre Cassat and contributors
+ * Copyleft (c) 2013-2014 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/mime-mailer>
+ * Sources <http://github.com/atelierspierrot/mime-mailer>
  */
 
 namespace MimeMailer;
@@ -13,6 +13,7 @@ use \Library\Converter\Html2Text;
 
 /**
  * @todo Cite all RFCs for each header field
+ * @author 		Piero Wbmstr <me@e-piwi.fr>
  */
 class MimeMessage
     extends AbstractMailerAware
@@ -137,13 +138,13 @@ class MimeMessage
             ->setRegistry('boundary_ctt', $this->makeBoundary());
 
 		// message type
-		if (strlen($this->text) && strlen($this->html) && count($this->attachment)) {
+		if (strlen($this->text)>0 && count($this->attachment)>0) {
 			$this->getMailer()->setRegistry('message_type', 'multipart/mixed');
-		} elseif (strlen($this->text) && strlen($this->html) && !count($this->attachment)) {
+		} elseif (strlen($this->text)>0 && strlen($this->html)>0 && count($this->attachment)==0) {
 			$this->getMailer()
 			    ->setRegistry('message_type', 'multipart/alternative')
 	            ->setRegistry('boundary_ctt', $this->getMailer()->getRegistry('boundary'));
-		} elseif (strlen($this->text) && !strlen($this->html) && !count($this->attachment)) {
+		} else {
 			$this->getMailer()->setRegistry('message_type', 'text/plain');
 		}
 	}
@@ -605,11 +606,7 @@ class MimeMessage
 			    $this->message .= Helper::headerTagger("Content-Type", "text/plain", 
 			    	array('charset'=>$this->getMailer()->getOption('charset'))).Mailer::$LINE_ENDING;
 			}
-    	    if (strlen($this->html)) {
-        	    $this->message .= Mailer::$LINE_ENDING.$this->text;
-        	} else {
-        	    $this->message .= trim($this->text, Mailer::$LINE_ENDING);
-        	}
+        	$this->message .= Mailer::$LINE_ENDING.$this->text;
         }
 
 	    // HTML content
