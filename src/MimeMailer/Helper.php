@@ -1,21 +1,24 @@
 <?php
 /**
  * MimeMailer - PHP package to send rich MIME emails
- * Copyleft (c) 2013 Pierre Cassat and contributors
+ * Copyleft (c) 2013-2014 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/mime-mailer>
+ * Sources <http://github.com/atelierspierrot/mime-mailer>
  */
 
 namespace MimeMailer;
 
-use \Patterns\Abstracts\AbstractSingleton;
-use \Patterns\Interfaces\OptionableInterface;
-use \Library\Converter\Html2Text;
-use \Library\Helper\Directory as DirectoryHelper;
+use \Patterns\Abstracts\AbstractSingleton,
+    \Patterns\Interfaces\OptionableInterface;
+
+use \Library\Converter\Html2Text,
+    \Library\Helper\Directory as DirectoryHelper;
+
 use \Validator\EmailValidator;
 
 /**
+ * @author 		Piero Wbmstr <me@e-piwi.fr>
  */
 class Helper
 {

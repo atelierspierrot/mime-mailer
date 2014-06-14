@@ -1,10 +1,10 @@
 <?php
 /**
  * MimeMailer - PHP package to send rich MIME emails
- * Copyleft (c) 2013 Pierre Cassat and contributors
+ * Copyleft (c) 2013-2014 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/mime-mailer>
+ * Sources <http://github.com/atelierspierrot/mime-mailer>
  */
 
 namespace MimeMailer;
@@ -12,7 +12,7 @@ namespace MimeMailer;
 /**
  * The spooling management class
  *
- * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
+ * @author 		Piero Wbmstr <me@e-piwi.fr>
  */
 interface SpoolInterface extends \Iterator
 {
@@ -31,8 +31,19 @@ interface SpoolInterface extends \Iterator
 	 */
     public function setOrderBy($rule = 'mdate asc');
 
+	/**
+	 * Add a message to spool mails
+	 *
+	 * @param string $id
+	 * @param string|array $contents
+	 */
     public function addMessageToSpool($id, $contents);
     
+	/**
+	 * Get a message from spool mails by ID
+	 *
+	 * @param string $id
+	 */
     public function getMessageFromSpool($id);
 
 }

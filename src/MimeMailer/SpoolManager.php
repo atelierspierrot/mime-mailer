@@ -1,18 +1,19 @@
 <?php
 /**
  * MimeMailer - PHP package to send rich MIME emails
- * Copyleft (c) 2013 Pierre Cassat and contributors
+ * Copyleft (c) 2013-2014 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/mime-mailer>
+ * Sources <http://github.com/atelierspierrot/mime-mailer>
  */
 
 namespace MimeMailer;
 
-use \Library\Helper\Directory as DirectoryHelper;
-use \Library\Helper\File as FileHelper;
+use \Library\Helper\Directory as DirectoryHelper,
+    \Library\Helper\File as FileHelper;
 
 /**
+ * @author 		Piero Wbmstr <me@e-piwi.fr>
  */
 class SpoolManager
     implements SpoolInterface, CacheInterface
