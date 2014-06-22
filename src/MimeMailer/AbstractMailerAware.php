@@ -12,16 +12,16 @@ namespace MimeMailer;
 /**
  * Extend an object to be `\MimeMailer\Mailer` aware
  *
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 abstract class AbstractMailerAware
 {
 
-	/**
-	 * Get the mailer instance
-	 *
-	 * @return \MimeMailer\Mailer
-	 */
+    /**
+     * Get the mailer instance
+     *
+     * @return \MimeMailer\Mailer
+     */
     public function getMailer()
     {
         return Mailer::getInstance();
