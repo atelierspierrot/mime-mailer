@@ -27,7 +27,7 @@
     <strong>CacheInterface</strong></p>
 
             <div class="description">
-            <p>The classic cache interface</p>
+            <p>A classic cache interface</p>
             <p>
 </p>
         </div>
@@ -39,34 +39,31 @@
             <table>
                     <tr>
                 <td class="type">
-                    
+                    bool
                 </td>
                 <td class="last">
-                    <a href="#method_cacheFile">cacheFile</a>($filename, $content, $encode_filename = true)
-                    <p>
-</p>
+                    <a href="#method_cacheFile">cacheFile</a>(string $filename, string $content, bool $encode_filename = true)
+                    <p>Must create a new version of a file in cache</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    bool
                 </td>
                 <td class="last">
-                    <a href="#method_isCachedFile">isCachedFile</a>($filename)
-                    <p>
-</p>
+                    <a href="#method_isCachedFile">isCachedFile</a>(string $filename)
+                    <p>Test if a version of a file exists in cache</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    string
                 </td>
                 <td class="last">
-                    <a href="#method_getCachedFile">getCachedFile</a>($filename)
-                    <p>
-</p>
+                    <a href="#method_getCachedFile">getCachedFile</a>(string $filename)
+                    <p>Get the cached version of a file</p>
                 </td>
                 <td></td>
             </tr>
@@ -76,13 +73,12 @@
         <h2>Details</h2>
 
                         <h3 id="method_cacheFile">
-        <div class="location">at line 20</div>
-        <code>            public            
-    <strong>cacheFile</strong>($filename, $content, $encode_filename = true)</code>
+        <div class="location">at line 28</div>
+        <code>            public            bool
+    <strong>cacheFile</strong>(string $filename, string $content, bool $encode_filename = true)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
+        <p>Must create a new version of a file in cache</p>
         <p>
 </p>
         <div class="tags">
@@ -90,19 +86,19 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$filename</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$content</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$encode_filename</td>
                 <td>
 </td>
@@ -110,19 +106,28 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_isCachedFile">
-        <div class="location">at line 22</div>
-        <code>            public            
-    <strong>isCachedFile</strong>($filename)</code>
+        <div class="location">at line 36</div>
+        <code>            public            bool
+    <strong>isCachedFile</strong>(string $filename)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
+        <p>Test if a version of a file exists in cache</p>
         <p>
 </p>
         <div class="tags">
@@ -130,7 +135,7 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$filename</td>
                 <td>
 </td>
@@ -138,19 +143,28 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_getCachedFile">
-        <div class="location">at line 24</div>
-        <code>            public            
-    <strong>getCachedFile</strong>($filename)</code>
+        <div class="location">at line 44</div>
+        <code>            public            string
+    <strong>getCachedFile</strong>(string $filename)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
+        <p>Get the cached version of a file</p>
         <p>
 </p>
         <div class="tags">
@@ -158,7 +172,7 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$filename</td>
                 <td>
 </td>
@@ -166,6 +180,16 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>

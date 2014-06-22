@@ -127,7 +127,7 @@
                     <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_setOption">setOption</a>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $value)
+                    <a href="#method_setOption">setOption</a>(string $name, mixed $value)
                     <p>Set the value of a specific option</p>
                 </td>
                 <td></td>
@@ -144,17 +144,17 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="MimeMailer\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
-                    <a href="#method_getOption">getOption</a>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $default = null)
+                    <a href="#method_getOption">getOption</a>(string $name, mixed $default = null)
                     <p>Get the value of a specific option</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="MimeMailer\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method_getDefault">getDefault</a>(string $name)
@@ -174,7 +174,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="MimeMailer\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method_getErrors">getErrors</a>(bool $echoable = false)
@@ -194,7 +194,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="MimeMailer\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method_getInfos">getInfos</a>(bool $echoable = false)
@@ -207,17 +207,17 @@
                     void
                 </td>
                 <td class="last">
-                    <a href="#method_setRegistry">setRegistry</a>(string $var = null, <abbr title="MimeMailer\misc">misc</abbr> $val = null, string $section = false)
+                    <a href="#method_setRegistry">setRegistry</a>(string $var = null, mixed $val = null, string $section = false)
                     <p>Set a registry entry</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="MimeMailer\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
-                    <a href="#method_getRegistry">getRegistry</a>(string $var = null, string $section = false, <abbr title="MimeMailer\misc">misc</abbr> $default = false)
+                    <a href="#method_getRegistry">getRegistry</a>(string $var = null, string $section = false, mixed $default = false)
                     <p>Get a registry entry</p>
                 </td>
                 <td></td>
@@ -237,7 +237,7 @@
                     string
                 </td>
                 <td class="last">
-                    <a href="#method_getMessage">getMessage</a>($id = null)
+                    <a href="#method_getMessage">getMessage</a>(int $id = null)
                     <p>Get a message by id or current message</p>
                 </td>
                 <td></td>
@@ -364,7 +364,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    bool|<abbr title="MimeMailer\misc">misc</abbr>
+                    bool|mixed
                 </td>
                 <td class="last">
                     <a href="#method_send">send</a>(bool $return_info = false)
@@ -374,7 +374,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="MimeMailer\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method_spool">spool</a>(bool $return_info = false)
@@ -388,7 +388,7 @@
         <h2>Details</h2>
 
                         <h3 id="method_setOptions">
-        <div class="location">at line 154</div>
+        <div class="location">at line 150</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>setOptions</strong>(array $options)</code>
     </h3>
@@ -425,9 +425,9 @@
     </div>
 
                 <h3 id="method_setOption">
-        <div class="location">at line 168</div>
+        <div class="location">at line 163</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
-    <strong>setOption</strong>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $value)</code>
+    <strong>setOption</strong>(string $name, mixed $value)</code>
     </h3>
     <div class="details">
         <p>Set the value of a specific option</p>
@@ -444,7 +444,7 @@
 </td>
             </tr>
                     <tr>
-                <td><abbr title="MimeMailer\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -468,7 +468,7 @@
     </div>
 
                 <h3 id="method_getOptions">
-        <div class="location">at line 179</div>
+        <div class="location">at line 174</div>
         <code>            public            array
     <strong>getOptions</strong>()</code>
     </h3>
@@ -494,9 +494,9 @@
     </div>
 
                 <h3 id="method_getOption">
-        <div class="location">at line 192</div>
-        <code>            public            <abbr title="MimeMailer\misc">misc</abbr>
-    <strong>getOption</strong>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $default = null)</code>
+        <div class="location">at line 186</div>
+        <code>            public            mixed
+    <strong>getOption</strong>(string $name, mixed $default = null)</code>
     </h3>
     <div class="details">
         <p>Get the value of a specific option</p>
@@ -513,7 +513,7 @@
 </td>
             </tr>
                     <tr>
-                <td><abbr title="MimeMailer\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$default</td>
                 <td>
 </td>
@@ -525,7 +525,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>
 </td>
         </tr>
@@ -537,8 +537,8 @@
     </div>
 
                 <h3 id="method_getDefault">
-        <div class="location">at line 204</div>
-        <code>            public            <abbr title="MimeMailer\misc">misc</abbr>
+        <div class="location">at line 197</div>
+        <code>            public            mixed
     <strong>getDefault</strong>(string $name)</code>
     </h3>
     <div class="details">
@@ -562,7 +562,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>
 </td>
         </tr>
@@ -574,7 +574,7 @@
     </div>
 
                 <h3 id="method_addError">
-        <div class="location">at line 259</div>
+        <div class="location">at line 251</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>addError</strong>(string $message)</code>
     </h3>
@@ -611,8 +611,8 @@
     </div>
 
                 <h3 id="method_getErrors">
-        <div class="location">at line 273</div>
-        <code>            public            <abbr title="MimeMailer\misc">misc</abbr>
+        <div class="location">at line 264</div>
+        <code>            public            mixed
     <strong>getErrors</strong>(bool $echoable = false)</code>
     </h3>
     <div class="details">
@@ -635,7 +635,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>The errors stack as an array by default, a string to display if $echoable=true</td>
         </tr>
     </table>
@@ -646,7 +646,7 @@
     </div>
 
                 <h3 id="method_addInfo">
-        <div class="location">at line 289</div>
+        <div class="location">at line 279</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>addInfo</strong>(string $message)</code>
     </h3>
@@ -683,8 +683,8 @@
     </div>
 
                 <h3 id="method_getInfos">
-        <div class="location">at line 303</div>
-        <code>            public            <abbr title="MimeMailer\misc">misc</abbr>
+        <div class="location">at line 292</div>
+        <code>            public            mixed
     <strong>getInfos</strong>(bool $echoable = false)</code>
     </h3>
     <div class="details">
@@ -707,7 +707,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>The errors stack as an array by default, a string to display if $echoable=true</td>
         </tr>
     </table>
@@ -718,9 +718,9 @@
     </div>
 
                 <h3 id="method_setRegistry">
-        <div class="location">at line 325</div>
+        <div class="location">at line 313</div>
         <code>            public            void
-    <strong>setRegistry</strong>(string $var = null, <abbr title="MimeMailer\misc">misc</abbr> $val = null, string $section = false)</code>
+    <strong>setRegistry</strong>(string $var = null, mixed $val = null, string $section = false)</code>
     </h3>
     <div class="details">
         <p>Set a registry entry</p>
@@ -736,7 +736,7 @@
                 <td>The entry name</td>
             </tr>
                     <tr>
-                <td><abbr title="MimeMailer\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$val</td>
                 <td>The entry value</td>
             </tr>
@@ -764,9 +764,9 @@
     </div>
 
                 <h3 id="method_getRegistry">
-        <div class="location">at line 347</div>
-        <code>            public            <abbr title="MimeMailer\misc">misc</abbr>
-    <strong>getRegistry</strong>(string $var = null, string $section = false, <abbr title="MimeMailer\misc">misc</abbr> $default = false)</code>
+        <div class="location">at line 334</div>
+        <code>            public            mixed
+    <strong>getRegistry</strong>(string $var = null, string $section = false, mixed $default = false)</code>
     </h3>
     <div class="details">
         <p>Get a registry entry</p>
@@ -787,7 +787,7 @@
                 <td>A sub-section to search the entry</td>
             </tr>
                     <tr>
-                <td><abbr title="MimeMailer\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$default</td>
                 <td>The value returned if nothing had been found</td>
             </tr>
@@ -798,7 +798,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>The value of the entry if found, $default otherwise</td>
         </tr>
     </table>
@@ -809,7 +809,7 @@
     </div>
 
                 <h3 id="method_addMessage">
-        <div class="location">at line 368</div>
+        <div class="location">at line 356</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>addMessage</strong>(<a href="../MimeMailer/MessageInterface.html"><abbr title="MimeMailer\MessageInterface">MessageInterface</abbr></a> $message)</code>
     </h3>
@@ -846,9 +846,9 @@
     </div>
 
                 <h3 id="method_getMessage">
-        <div class="location">at line 383</div>
+        <div class="location">at line 371</div>
         <code>            public            string
-    <strong>getMessage</strong>($id = null)</code>
+    <strong>getMessage</strong>(int $id = null)</code>
     </h3>
     <div class="details">
         <p>Get a message by id or current message</p>
@@ -858,7 +858,7 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$id</td>
                 <td>
 </td>
@@ -881,7 +881,7 @@
 
                     <table>
                     <tr>
-                <td><abbr title="Excpetion">Excpetion</abbr></td>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
                 <td>if the default <code>messager</code> class doesn't exist</td>
             </tr>
             </table>
@@ -891,7 +891,7 @@
     </div>
 
                 <h3 id="method_setTransporter">
-        <div class="location">at line 411</div>
+        <div class="location">at line 397</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>setTransporter</strong>(<a href="../MimeMailer/TransportInterface.html"><abbr title="MimeMailer\TransportInterface">TransportInterface</abbr></a> $transporter)</code>
     </h3>
@@ -906,7 +906,8 @@
                     <tr>
                 <td><a href="../MimeMailer/TransportInterface.html"><abbr title="MimeMailer\TransportInterface">TransportInterface</abbr></a></td>
                 <td>$transporter</td>
-                <td>TransportInterface</td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -926,7 +927,7 @@
 
                     <table>
                     <tr>
-                <td><abbr title="Excpetion">Excpetion</abbr></td>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
                 <td>if the default <code>transporter::validate()</code> does not return <code>true</code></td>
             </tr>
             </table>
@@ -936,7 +937,7 @@
     </div>
 
                 <h3 id="method_getTransporter">
-        <div class="location">at line 432</div>
+        <div class="location">at line 417</div>
         <code>            public            string
     <strong>getTransporter</strong>()</code>
     </h3>
@@ -960,7 +961,7 @@
 
                     <table>
                     <tr>
-                <td><abbr title="Excpetion">Excpetion</abbr></td>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
                 <td>if the default <code>transporter</code> class doesn't exist</td>
             </tr>
             </table>
@@ -970,7 +971,7 @@
     </div>
 
                 <h3 id="method_setSpooler">
-        <div class="location">at line 454</div>
+        <div class="location">at line 438</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>setSpooler</strong>(<a href="../MimeMailer/SpoolInterface.html"><abbr title="MimeMailer\SpoolInterface">SpoolInterface</abbr></a> $spooler)</code>
     </h3>
@@ -985,7 +986,8 @@
                     <tr>
                 <td><a href="../MimeMailer/SpoolInterface.html"><abbr title="MimeMailer\SpoolInterface">SpoolInterface</abbr></a></td>
                 <td>$spooler</td>
-                <td>SpoolInterface</td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -1006,7 +1008,7 @@
     </div>
 
                 <h3 id="method_getSpooler">
-        <div class="location">at line 469</div>
+        <div class="location">at line 452</div>
         <code>            public            string
     <strong>getSpooler</strong>()</code>
     </h3>
@@ -1030,7 +1032,7 @@
 
                     <table>
                     <tr>
-                <td><abbr title="Excpetion">Excpetion</abbr></td>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
                 <td>if the default <code>spooler</code> class doesn't exist</td>
             </tr>
             </table>
@@ -1040,7 +1042,7 @@
     </div>
 
                 <h3 id="method_setDryRun">
-        <div class="location">at line 491</div>
+        <div class="location">at line 473</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>setDryRun</strong>(bool $dry = true)</code>
     </h3>
@@ -1076,7 +1078,7 @@
     </div>
 
                 <h3 id="method_getDryRun">
-        <div class="location">at line 502</div>
+        <div class="location">at line 484</div>
         <code>            public            bool
     <strong>getDryRun</strong>()</code>
     </h3>
@@ -1102,7 +1104,7 @@
     </div>
 
                 <h3 id="method_isDryRun">
-        <div class="location">at line 512</div>
+        <div class="location">at line 494</div>
         <code>            public            bool
     <strong>isDryRun</strong>()</code>
     </h3>
@@ -1128,7 +1130,7 @@
     </div>
 
                 <h3 id="method_setSpool">
-        <div class="location">at line 524</div>
+        <div class="location">at line 505</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>setSpool</strong>(bool $spool = true)</code>
     </h3>
@@ -1164,7 +1166,7 @@
     </div>
 
                 <h3 id="method_getSpool">
-        <div class="location">at line 535</div>
+        <div class="location">at line 516</div>
         <code>            public            bool
     <strong>getSpool</strong>()</code>
     </h3>
@@ -1190,7 +1192,7 @@
     </div>
 
                 <h3 id="method_isSpool">
-        <div class="location">at line 545</div>
+        <div class="location">at line 526</div>
         <code>            public            bool
     <strong>isSpool</strong>()</code>
     </h3>
@@ -1216,7 +1218,7 @@
     </div>
 
                 <h3 id="method_setSpoolDirectory">
-        <div class="location">at line 557</div>
+        <div class="location">at line 537</div>
         <code>            public            <a href="../MimeMailer/Mailer.html"><abbr title="MimeMailer\Mailer">Mailer</abbr></a>
     <strong>setSpoolDirectory</strong>(string $dir)</code>
     </h3>
@@ -1252,7 +1254,7 @@
     </div>
 
                 <h3 id="method_getSpoolDirectory">
-        <div class="location">at line 568</div>
+        <div class="location">at line 548</div>
         <code>            public            string
     <strong>getSpoolDirectory</strong>()</code>
     </h3>
@@ -1278,8 +1280,8 @@
     </div>
 
                 <h3 id="method_send">
-        <div class="location">at line 584</div>
-        <code>            public            bool|<abbr title="MimeMailer\misc">misc</abbr>
+        <div class="location">at line 563</div>
+        <code>            public            bool|mixed
     <strong>send</strong>(bool $return_info = false)</code>
     </h3>
     <div class="details">
@@ -1302,7 +1304,7 @@
 
                     <table>
         <tr>
-            <td>bool|<abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>bool|mixed</td>
             <td>
 </td>
         </tr>
@@ -1314,8 +1316,8 @@
     </div>
 
                 <h3 id="method_spool">
-        <div class="location">at line 652</div>
-        <code>            public            <abbr title="MimeMailer\misc">misc</abbr>
+        <div class="location">at line 630</div>
+        <code>            public            mixed
     <strong>spool</strong>(bool $return_info = false)</code>
     </h3>
     <div class="details">
@@ -1338,7 +1340,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>
 </td>
         </tr>

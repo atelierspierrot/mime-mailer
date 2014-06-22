@@ -37,7 +37,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_set">set</a>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $val)
+                    <a href="#method_set">set</a>(string $name, mixed $val)
                     <p>Global setter</p>
                 </td>
                 <td></td>
@@ -127,7 +127,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_setAttachment">setAttachment</a>($file = &#039;&#039;, $clear = false)
+                    <a href="#method_setAttachment">setAttachment</a>(string|array $file = &#039;&#039;, bool $clear = false)
                     <p>Set mail file attachment</p>
                 </td>
                 <td></td>
@@ -180,7 +180,7 @@
                         <h3 id="method_set">
         <div class="location">at line 24</div>
         <code>            public            
-    <strong>set</strong>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $val)</code>
+    <strong>set</strong>(string $name, mixed $val)</code>
     </h3>
     <div class="details">
         <p>Global setter</p>
@@ -197,7 +197,7 @@
 </td>
             </tr>
                     <tr>
-                <td><abbr title="MimeMailer\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$val</td>
                 <td>
 </td>
@@ -448,7 +448,7 @@
                 <h3 id="method_setAttachment">
         <div class="location">at line 93</div>
         <code>            public            
-    <strong>setAttachment</strong>($file = &#039;&#039;, $clear = false)</code>
+    <strong>setAttachment</strong>(string|array $file = &#039;&#039;, bool $clear = false)</code>
     </h3>
     <div class="details">
         <p>Set mail file attachment</p>
@@ -459,16 +459,14 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string|array</td>
                 <td>$file</td>
-                <td>
-</td>
+                <td>The file or files to attach</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$clear</td>
-                <td>
-</td>
+                <td>Clear a set content first ? (default is to append a content)</td>
             </tr>
             </table>
 
@@ -499,7 +497,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$clear</td>
-                <td>Clear a setted content first ? (default is to append a content)</td>
+                <td>Clear a set content first ? (default is to append a content)</td>
             </tr>
             </table>
 
@@ -529,7 +527,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$clear</td>
-                <td>Clear a setted content first ? (default is to append a content)</td>
+                <td>Clear a set content first ? (default is to append a content)</td>
             </tr>
             </table>
 
@@ -560,7 +558,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$clear</td>
-                <td>Clear a setted content first ? (default is to append a content)</td>
+                <td>Clear a set content first ? (default is to append a content)</td>
             </tr>
             </table>
 

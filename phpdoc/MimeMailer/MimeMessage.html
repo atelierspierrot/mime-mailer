@@ -58,14 +58,14 @@
                     <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_set">set</a>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $val)
+                    <a href="#method_set">set</a>(string $name, mixed $val)
                     <p>Global setter</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="MimeMailer\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method_get">get</a>(string $name)
@@ -148,7 +148,7 @@
                     <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_setAttachment">setAttachment</a>($file = &#039;&#039;, $clear = false)
+                    <a href="#method_setAttachment">setAttachment</a>(string|array $file = &#039;&#039;, bool $clear = false)
                     <p>Set mail file attachment</p>
                 </td>
                 <td></td>
@@ -366,9 +366,9 @@
     </div>
 
                 <h3 id="method_set">
-        <div class="location">at line 163</div>
+        <div class="location">at line 162</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
-    <strong>set</strong>(string $name, <abbr title="MimeMailer\misc">misc</abbr> $val)</code>
+    <strong>set</strong>(string $name, mixed $val)</code>
     </h3>
     <div class="details">
         <p>Global setter</p>
@@ -385,7 +385,7 @@
 </td>
             </tr>
                     <tr>
-                <td><abbr title="MimeMailer\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$val</td>
                 <td>
 </td>
@@ -409,8 +409,8 @@
     </div>
 
                 <h3 id="method_get">
-        <div class="location">at line 178</div>
-        <code>            public            <abbr title="MimeMailer\misc">misc</abbr>
+        <div class="location">at line 176</div>
+        <code>            public            mixed
     <strong>get</strong>(string $name)</code>
     </h3>
     <div class="details">
@@ -434,7 +434,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="MimeMailer\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>
 </td>
         </tr>
@@ -446,7 +446,7 @@
     </div>
 
                 <h3 id="method_clear">
-        <div class="location">at line 190</div>
+        <div class="location">at line 187</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>clear</strong>(string $name = null)</code>
     </h3>
@@ -483,7 +483,7 @@
     </div>
 
                 <h3 id="method_getFormated">
-        <div class="location">at line 212</div>
+        <div class="location">at line 208</div>
         <code>            public            string
     <strong>getFormated</strong>(string $name)</code>
     </h3>
@@ -520,7 +520,7 @@
     </div>
 
                 <h3 id="method_getId">
-        <div class="location">at line 223</div>
+        <div class="location">at line 219</div>
         <code>            public            string
     <strong>getId</strong>()</code>
     </h3>
@@ -546,7 +546,7 @@
     </div>
 
                 <h3 id="method_setFrom">
-        <div class="location">at line 239</div>
+        <div class="location">at line 233</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setFrom</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null, bool $reply = true)</code>
     </h3>
@@ -601,7 +601,7 @@
     </div>
 
                 <h3 id="method_setTo">
-        <div class="location">at line 263</div>
+        <div class="location">at line 255</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -651,7 +651,7 @@
     </div>
 
                 <h3 id="method_setCc">
-        <div class="location">at line 281</div>
+        <div class="location">at line 271</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setCc</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -701,7 +701,7 @@
     </div>
 
                 <h3 id="method_setBcc">
-        <div class="location">at line 299</div>
+        <div class="location">at line 287</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setBcc</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -751,9 +751,9 @@
     </div>
 
                 <h3 id="method_setAttachment">
-        <div class="location">at line 315</div>
+        <div class="location">at line 302</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
-    <strong>setAttachment</strong>($file = &#039;&#039;, $clear = false)</code>
+    <strong>setAttachment</strong>(string|array $file = &#039;&#039;, bool $clear = false)</code>
     </h3>
     <div class="details">
         <p>Set mail file attachment</p>
@@ -764,16 +764,14 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string|array</td>
                 <td>$file</td>
-                <td>
-</td>
+                <td>The file or files to attach</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$clear</td>
-                <td>
-</td>
+                <td>Clear a set content first ? (default is to append a content)</td>
             </tr>
             </table>
 
@@ -794,7 +792,7 @@
     </div>
 
                 <h3 id="method_setSubject">
-        <div class="location">at line 342</div>
+        <div class="location">at line 328</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setSubject</strong>(string $subject = &#039;&#039;, bool $clear = false)</code>
     </h3>
@@ -814,7 +812,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$clear</td>
-                <td>Clear a setted content first ? (default is to append a content)</td>
+                <td>Clear a set content first ? (default is to append a content)</td>
             </tr>
             </table>
 
@@ -835,7 +833,7 @@
     </div>
 
                 <h3 id="method_setText">
-        <div class="location">at line 361</div>
+        <div class="location">at line 346</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setText</strong>(string $text = &#039;&#039;, bool $clear = false)</code>
     </h3>
@@ -854,7 +852,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$clear</td>
-                <td>Clear a setted content first ? (default is to append a content)</td>
+                <td>Clear a set content first ? (default is to append a content)</td>
             </tr>
             </table>
 
@@ -875,7 +873,7 @@
     </div>
 
                 <h3 id="method_setHtml">
-        <div class="location">at line 385</div>
+        <div class="location">at line 369</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setHtml</strong>(string $html = &#039;&#039;, bool $clear = false)</code>
     </h3>
@@ -895,7 +893,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$clear</td>
-                <td>Clear a setted content first ? (default is to append a content)</td>
+                <td>Clear a set content first ? (default is to append a content)</td>
             </tr>
             </table>
 
@@ -916,7 +914,7 @@
     </div>
 
                 <h3 id="method_setReplyTo">
-        <div class="location">at line 402</div>
+        <div class="location">at line 385</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setReplyTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -957,7 +955,7 @@
     </div>
 
                 <h3 id="method_setFollowupTo">
-        <div class="location">at line 423</div>
+        <div class="location">at line 405</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setFollowupTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -998,7 +996,7 @@
     </div>
 
                 <h3 id="method_setErrorsTo">
-        <div class="location">at line 444</div>
+        <div class="location">at line 425</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setErrorsTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -1039,7 +1037,7 @@
     </div>
 
                 <h3 id="method_setDispositionNotificationTo">
-        <div class="location">at line 465</div>
+        <div class="location">at line 445</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setDispositionNotificationTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -1080,7 +1078,7 @@
     </div>
 
                 <h3 id="method_setAbuseReportsTo">
-        <div class="location">at line 486</div>
+        <div class="location">at line 465</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setAbuseReportsTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -1123,7 +1121,7 @@
     </div>
 
                 <h3 id="method_setReturnReceiptTo">
-        <div class="location">at line 509</div>
+        <div class="location">at line 487</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>setReturnReceiptTo</strong>(<abbr title="MimeMailer\string/array">string/array</abbr> $mail = &#039;&#039;, <abbr title="MimeMailer\string/bool">string/bool</abbr> $name = null)</code>
     </h3>
@@ -1164,7 +1162,7 @@
     </div>
 
                 <h3 id="method_getMessage">
-        <div class="location">at line 527</div>
+        <div class="location">at line 505</div>
         <code>            public            string
     <strong>getMessage</strong>()</code>
     </h3>
@@ -1190,7 +1188,7 @@
     </div>
 
                 <h3 id="method_buildMessage">
-        <div class="location">at line 541</div>
+        <div class="location">at line 519</div>
         <code>            public            <a href="../MimeMailer/MimeMessage.html"><abbr title="MimeMailer\MimeMessage">MimeMessage</abbr></a>
     <strong>buildMessage</strong>()</code>
     </h3>
@@ -1216,7 +1214,7 @@
     </div>
 
                 <h3 id="method_makeBoundary">
-        <div class="location">at line 664</div>
+        <div class="location">at line 638</div>
         <code>            public            string
     <strong>makeBoundary</strong>()</code>
     </h3>
@@ -1241,7 +1239,7 @@
     </div>
 
                 <h3 id="method_substitution">
-        <div class="location">at line 677</div>
+        <div class="location">at line 650</div>
         <code>            public            string
     <strong>substitution</strong>(string $search, string $replace)</code>
     </h3>
