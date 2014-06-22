@@ -12,38 +12,38 @@ namespace MimeMailer;
 /**
  * The spooling management class
  *
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 interface SpoolInterface extends \Iterator
 {
 
-	/**
-	 * Set the spooled mails directory
-	 *
-	 * @param string $dir
-	 */
+    /**
+     * Set the spooled mails directory
+     *
+     * @param string $dir
+     */
     public function setSpoolDirectory($dir);
 
-	/**
-	 * Set the spooled files ordering rule
-	 *
-	 * @param string $rule
-	 */
+    /**
+     * Set the spooled files ordering rule
+     *
+     * @param string $rule
+     */
     public function setOrderBy($rule = 'mdate asc');
 
-	/**
-	 * Add a message to spool mails
-	 *
-	 * @param string $id
-	 * @param string|array $contents
-	 */
+    /**
+     * Add a message to spool mails
+     *
+     * @param string $id
+     * @param string|array $contents
+     */
     public function addMessageToSpool($id, $contents);
-    
-	/**
-	 * Get a message from spool mails by ID
-	 *
-	 * @param string $id
-	 */
+
+    /**
+     * Get a message from spool mails by ID
+     *
+     * @param string $id
+     */
     public function getMessageFromSpool($id);
 
 }

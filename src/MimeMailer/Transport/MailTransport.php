@@ -9,8 +9,8 @@
 
 namespace MimeMailer\Transport;
 
-use \MimeMailer\Mailer,
-    \MimeMailer\TransportInterface;
+use \MimeMailer\Mailer;
+use \MimeMailer\TransportInterface;
 
 /*
 PHP Mail function :
@@ -18,7 +18,7 @@ bool mail ( string $to , string $subject , string $message [, string $additional
 */
 
 /**
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 class MailTransport
     implements TransportInterface
@@ -30,38 +30,36 @@ class MailTransport
     public function __construct()
     {
         $sendmail_path = Mailer::getInstance()->getOption('sendmail_path');
-		if (!empty($sendmail_path)) {
-			@ini_set('sendmail_path', $sendmail_path);
-		}
+        if (!empty($sendmail_path)) {
+            @ini_set('sendmail_path', $sendmail_path);
+        }
     }
 
-	/**
-	 * Validate this transport way
-	 *
-	 * @return bool Must return a boolean after testing the transport way in current envionement
-	 */
-	public function validate()
-	{
-	    return true;
-	}
+    /**
+     * Validate this transport way
+     *
+     * @return bool Must return a boolean after testing the transport way in current envionement
+     */
+    public function validate()
+    {
+        return true;
+    }
 
-	/**
-	 * Messages sender : prepare the whole content and send the e-mail
-	 *
-	 * @param string $to
-	 * @param string $subject
-	 * @param string $message
-	 * @param string $additional_headers
-	 * @param string $additional_parameters
-	 *
-	 * @return misc
-	 *
-	 * @see mail()
-	 */
-	public function transport($to, $subject, $message, $additional_headers = '', $additional_parameters = '')
-	{
-		return mail($to, $subject, $message, $additional_headers, $additional_parameters);
-	}
+    /**
+     * Messages sender : prepare the whole content and send the e-mail
+     *
+     * @param   string $to
+     * @param   string $subject
+     * @param   string $message
+     * @param   string $additional_headers
+     * @param   string $additional_parameters
+     * @return  mixed
+     * @see     mail()
+     */
+    public function transport($to, $subject, $message, $additional_headers = '', $additional_parameters = '')
+    {
+        return mail($to, $subject, $message, $additional_headers, $additional_parameters);
+    }
 
 }
 

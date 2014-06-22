@@ -9,16 +9,14 @@
 
 namespace MimeMailer;
 
-use \Patterns\Abstracts\AbstractSingleton,
-    \Patterns\Interfaces\OptionableInterface;
-
-use \Library\Converter\Html2Text,
-    \Library\Helper\Directory as DirectoryHelper;
-
+use \Patterns\Abstracts\AbstractSingleton;
+use \Patterns\Interfaces\OptionableInterface;
+use \Library\Converter\Html2Text;
+use \Library\Helper\Directory as DirectoryHelper;
 use \Validator\EmailValidator;
 
 /**
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 class Mailer
     extends AbstractSingleton
@@ -28,119 +26,115 @@ class Mailer
 // --------------------
 // Constants
 // --------------------
-	const MM_CLASSNAME = "MimeMailer package";
-	const MM_CLASSVERSION = "0.1";
-	const BOUNDARY_OPENER = "--";
-	const BOUNDARY_CLOSER = "--";
-	const BOUNDARY_PREFIX = "=_MimeMailerClass_";
+    const MM_CLASSNAME = "MimeMailer package";
+    const MM_CLASSVERSION = "0.1";
+    const BOUNDARY_OPENER = "--";
+    const BOUNDARY_CLOSER = "--";
+    const BOUNDARY_PREFIX = "=_MimeMailerClass_";
 
 // --------------------
 // Statics
 // --------------------
-	public static $LINE_ENDING = "\n";
-	public static $ADDERSSES_SEPARATOR = ", ";
-	public static $HEADERS_SEPARATOR = "; ";
+    public static $LINE_ENDING = "\n";
+    public static $ADDERSSES_SEPARATOR = ", ";
+    public static $HEADERS_SEPARATOR = "; ";
 
 // --------------------
 // Variables
 // --------------------
 
-	/**
-	 * @var array
-	 */
-	private $errors = array();
+    /**
+     * @var array
+     */
+    private $errors = array();
 
-	/**
-	 * @var array
-	 */
-	private $infos = array();
+    /**
+     * @var array
+     */
+    private $infos = array();
 
-	/**
-	 * @var array of MessageInterface objects
-	 */
-	private $messages = array();
+    /**
+     * @var array of \MimeMailer\MessageInterface objects
+     */
+    private $messages = array();
 
-	/**
-	 * @var TransportInterface
-	 */
-	private $transporter;
+    /**
+     * @var \MimeMailer\TransportInterface
+     */
+    private $transporter;
 
-	/**
-	 * @var SpoolInterface
-	 */
-	private $spooler;
+    /**
+     * @var \MimeMailer\SpoolInterface
+     */
+    private $spooler;
 
-	/**
-	 * @var int
-	 */
-	private $sent_messages = 0;
+    /**
+     * @var int
+     */
+    private $sent_messages = 0;
 
-	/**
-	 * @var int
-	 */
-	private $sent_errors = 0;
+    /**
+     * @var int
+     */
+    private $sent_errors = 0;
 
-	/**
-	 * @var array
-	 */
-	protected $options = array(
-		'headers' => array(
-			'MIME-Version'=>'1.0',
-			'Return-Path'=>false,
-			'Reply-To'=>'no-reply@mail.class',
-			'X-Sender'=>false,
-			'X-Priority'=>'3',
-		),
-		'defaults'=>array(
-		    'transporter' => '\MimeMailer\Transport\MailTransport',
-		    'messager' => '\MimeMailer\MimeMessage',
-		    'spooler' => '\MimeMailer\SpoolManager',
-		),
-//		'charset' => 'iso-8859-1',
+    /**
+     * @var array
+     */
+    protected $options = array(
+        'headers' => array(
+            'MIME-Version'=>'1.0',
+            'Return-Path'=>false,
+            'Reply-To'=>'no-reply@mail.class',
+            'X-Sender'=>false,
+            'X-Priority'=>'3',
+        ),
+        'defaults'=>array(
+            'transporter' => '\MimeMailer\Transport\MailTransport',
+            'messager' => '\MimeMailer\MimeMessage',
+            'spooler' => '\MimeMailer\SpoolManager',
+        ),
+//        'charset' => 'iso-8859-1',
         'charset' => 'utf-8',
         'wordwrap_limit' => 78,
-		'sender_mailer' => "mime@mail.class",
-		'boundary' => '',
-		'boundary_ctt' => '',
-		'message_type' => '',
-		'spool_directory' => '',
-    	// Redefine the sendmail executable path
-	    'sendmail_path' => null,
-	);
+        'sender_mailer' => "mime@mail.class",
+        'boundary' => '',
+        'boundary_ctt' => '',
+        'message_type' => '',
+        'spool_directory' => '',
+        // Redefine the sendmail executable path
+        'sendmail_path' => null,
+    );
 
-	/**
-	 * Set to TRUE to not send the mails but test its contents
-	 * @var bool
-	 */
-	protected $dry_run = false;
+    /**
+     * Set to TRUE to not send the mails but test its contents
+     * @var bool
+     */
+    protected $dry_run = false;
 
-	/**
-	 * Set to TRUE to not send the mails but write them in a file
-	 * @var bool
-	 */
-	protected $spool = false;
+    /**
+     * Set to TRUE to not send the mails but write them in a file
+     * @var bool
+     */
+    protected $spool = false;
 
 // --------------------
 // Construction
 // --------------------
 
-	/**
-	 * Construction of a MimeEmail object
-	 *
-	 * @param string $from_name
-	 * @param string $from_mail
-	 * @param string|array $to
-	 * @param string $subject
-	 * @param string $message
-	 */
-    protected function init(array $options = null) 
+    /**
+     * Construction of a MimeEmail object
+     *
+     * @param array $options
+     */
+    protected function init(array $options = null)
     {
-    	$this->boot();
-		if (!is_null($options)) {
-		    $this->setOptions(
-		        array_merge($this->getOptions(), $options)
-		    );
-		}
+        $this->boot();
+        if (!is_null($options)) {
+            $this->setOptions(
+                array_merge($this->getOptions(), $options)
+            );
+        }
     }
 
 // --------------------
@@ -151,7 +145,6 @@ class Mailer
      * Set an array of options
      *
      * @param array $options
-     *
      * @return self
      */
     public function setOptions(array $options)
@@ -164,8 +157,7 @@ class Mailer
      * Set the value of a specific option
      *
      * @param string $name
-     * @param misc $value
-     *
+     * @param mixed $value
      * @return self
      */
     public function setOption($name, $value)
@@ -188,9 +180,8 @@ class Mailer
      * Get the value of a specific option
      *
      * @param string $name
-     * @param misc $default
-     *
-     * @return misc
+     * @param mixed $default
+     * @return mixed
      */
     public function getOption($name, $default = null)
     {
@@ -201,8 +192,7 @@ class Mailer
      * Get the value of a specific option
      *
      * @param string $name
-     *
-     * @return misc
+     * @return mixed
      */
     public function getDefault($name)
     {
@@ -213,182 +203,177 @@ class Mailer
 // Internal boot
 // --------------------
 
-	/**
-	 * First initialization of the object
-	 *
-	 * @return void
-	 */
-	protected function boot()
-	{
+    /**
+     * First initialization of the object
+     *
+     * @return void
+     */
+    protected function boot()
+    {
         if (defined('PHP_EOL')) {
             self::$LINE_ENDING = PHP_EOL;
         } else {
-	        self::$LINE_ENDING = (strpos(PHP_OS, 'WIN') === false) ? "\n" : "\r\n";
+            self::$LINE_ENDING = (strpos(PHP_OS, 'WIN') === false) ? "\n" : "\r\n";
         }
-		$this->setRegistry('X-Mailer', "PHP ".PHP_VERSION." - ".self::MM_CLASSNAME." ".self::MM_CLASSVERSION, 'headers');
-	}
+        $this->setRegistry('X-Mailer', "PHP ".PHP_VERSION." - ".self::MM_CLASSNAME." ".self::MM_CLASSVERSION, 'headers');
+    }
 
-	/**
-	 * Initialization before sending messages
-	 *
-	 * @return void
-	 */
-	protected function _presendInit()
-	{
-		// Fournir si possible un Message-Id: conforme au RFC1036,
-		// sinon SpamAssassin denoncera un MSGID_FROM_MTA_HEADER
-		$sender_mailer = $this->getOption('sender_mailer');
-		if (Helper::isEmail($sender_mailer)) {
-			preg_match('/(@\S+)/', $sender_mailer, $domain);
-			$this->setRegistry('Message-Id', '<'.time().'_'.rand().'_'.md5($this->getMessage()->get('text')).$domain[1].'>', 'headers');
-		} else {
-		    $this->addError(
-		        sprintf('!! - Error in "sender" address (%s) - the message will probably be considered as a spam.', $sender_mailer)
-		    );
-		}
-	}
+    /**
+     * Initialization before sending messages
+     *
+     * @return void
+     */
+    protected function _presendInit()
+    {
+        // Fournir si possible un Message-Id: conforme au RFC1036,
+        // sinon SpamAssassin denoncera un MSGID_FROM_MTA_HEADER
+        $sender_mailer = $this->getOption('sender_mailer');
+        if (Helper::isEmail($sender_mailer)) {
+            preg_match('/(@\S+)/', $sender_mailer, $domain);
+            $this->setRegistry('Message-Id', '<'.time().'_'.rand().'_'.md5($this->getMessage()->get('text')).$domain[1].'>', 'headers');
+        } else {
+            $this->addError(
+                sprintf('!! - Error in "sender" address (%s) - the message will probably be considered as a spam.', $sender_mailer)
+            );
+        }
+    }
 
 // --------------------
 // Infos / Errors
 // --------------------
 
-	/**
-	 * Add error
-	 *
-	 * @param string $message
-	 *
-	 * @return self
-	 */
-	public function addError($message)
-	{
-		$this->errors[] = $message;
-		return $this;
-	}
+    /**
+     * Add error
+     *
+     * @param string $message
+     * @return self
+     */
+    public function addError($message)
+    {
+        $this->errors[] = $message;
+        return $this;
+    }
 
-	/**
-	 * Get the errors
-	 *
-	 * @param bool $echoable Do we have to return a string to echo ? (FALSE by default)
-	 * @return misc The errors stack as an array by default, a string to display if $echoable=true
-	 *
-	 * @return string|array
-	 */
-	public function getErrors($echoable = false)
-	{
-		if (true===$echoable) {
-			return join("\n<br />", $this->errors);
-		} else {
-			return $this->errors;
-		}
-	}
+    /**
+     * Get the errors
+     *
+     * @param bool $echoable Do we have to return a string to echo ? (FALSE by default)
+     * @return mixed The errors stack as an array by default, a string to display if $echoable=true
+     * @return string|array
+     */
+    public function getErrors($echoable = false)
+    {
+        if (true===$echoable) {
+            return join("\n<br />", $this->errors);
+        } else {
+            return $this->errors;
+        }
+    }
 
-	/**
-	 * Add info
-	 *
-	 * @param string $message
-	 *
-	 * @return self
-	 */
-	public function addInfo($message)
-	{
-		$this->infos[] = $message;
-		return $this;
-	}
+    /**
+     * Add info
+     *
+     * @param string $message
+     * @return self
+     */
+    public function addInfo($message)
+    {
+        $this->infos[] = $message;
+        return $this;
+    }
 
-	/**
-	 * Get the informations
-	 *
-	 * @param bool $echoable Do we have to return a string to echo ? (FALSE by default)
-	 * @return misc The errors stack as an array by default, a string to display if $echoable=true
-	 *
-	 * @return string|array
-	 */
-	public function getInfos($echoable = false)
-	{
-		if (true===$echoable) {
-			return join("\n<br />", $this->infos);
-		} else {
-			return $this->infos;
-		}
-	}
+    /**
+     * Get the informations
+     *
+     * @param bool $echoable Do we have to return a string to echo ? (FALSE by default)
+     * @return mixed The errors stack as an array by default, a string to display if $echoable=true
+     * @return string|array
+     */
+    public function getInfos($echoable = false)
+    {
+        if (true===$echoable) {
+            return join("\n<br />", $this->infos);
+        } else {
+            return $this->infos;
+        }
+    }
 
 // --------------------
 // Setters / Getters
 // --------------------
 
-	/**
-	 * Set a registry entry
-	 *
-	 * @param string $var The entry name
-	 * @param misc $val The entry value
-	 * @param string $section A sub-section to search the entry
-	 *
-	 * @return void
-	 */
-	public function setRegistry($var = null, $val = null, $section = false)
-	{
-		if (is_null($var)) return;
-		if ($section) {
-			if (!isset($this->registry[$section]))
-				$this->registry[$section] = array();
-			$this->registry[$section][$var] = $val;
-		} else {
-			$this->registry[$var] = $val;
-		}
-		return $this;
-	}
-
-	/**
-	 * Get a registry entry
-	 *
-	 * @param string $var The entry name
-	 * @param string $section A sub-section to search the entry
-	 * @param misc $default The value returned if nothing had been found
-	 *
-	 * @return misc The value of the entry if found, $default otherwise
-	 */
-	public function getRegistry($var = null, $section = false, $default = false)
-	{
-		if (is_null($var)) return;
-		if ($section && isset($this->registry[$section])) {
-			if (isset($this->registry[$section][$var])) {
-				return $this->registry[$section][$var];
-			} else {
-				return $default;
-			}
-		}
-		if (isset($this->registry[$var])) {
-			return $this->registry[$var];
-		}
-		return $default;
-	}
-
-	/**
-	 * Build a new message
-	 *
-	 * @return self
-	 */
-    public function addMessage(MessageInterface $message) 
+    /**
+     * Set a registry entry
+     *
+     * @param   string  $var The entry name
+     * @param   mixed   $val The entry value
+     * @param   string  $section A sub-section to search the entry
+     * @return void
+     */
+    public function setRegistry($var = null, $val = null, $section = false)
     {
-    	$this->messages[$message->getId()] = $message;
-    	return $this;
+        if (is_null($var)) return;
+        if ($section) {
+            if (!isset($this->registry[$section]))
+                $this->registry[$section] = array();
+            $this->registry[$section][$var] = $val;
+        } else {
+            $this->registry[$var] = $val;
+        }
+        return $this;
     }
-    
-	/**
-	 * Get a message by id or current message
-	 *
-	 * If no message exists for now, it will be created using the default `messager` class.
-	 *
-	 * @return string
-	 *
-	 * @throws Excpetion if the default `messager` class doesn't exist
-	 */
-    public function getMessage($id = null) 
+
+    /**
+     * Get a registry entry
+     *
+     * @param string $var The entry name
+     * @param string $section A sub-section to search the entry
+     * @param mixed $default The value returned if nothing had been found
+     * @return mixed The value of the entry if found, $default otherwise
+     */
+    public function getRegistry($var = null, $section = false, $default = false)
+    {
+        if (is_null($var)) return;
+        if ($section && isset($this->registry[$section])) {
+            if (isset($this->registry[$section][$var])) {
+                return $this->registry[$section][$var];
+            } else {
+                return $default;
+            }
+        }
+        if (isset($this->registry[$var])) {
+            return $this->registry[$var];
+        }
+        return $default;
+    }
+
+    /**
+     * Build a new message
+     *
+     * @param \MimeMailer\MessageInterface $message
+     * @return self
+     */
+    public function addMessage(MessageInterface $message)
+    {
+        $this->messages[$message->getId()] = $message;
+        return $this;
+    }
+
+    /**
+     * Get a message by id or current message
+     *
+     * If no message exists for now, it will be created using the default `messager` class.
+     *
+     * @param   int $id
+     * @return string
+     * @throws \Exception if the default `messager` class doesn't exist
+     */
+    public function getMessage($id = null)
     {
         if (!is_null($id)) {
-        	return array_key_exists($id, $this->messages) ? $this->messages[$id] : null;
+            return array_key_exists($id, $this->messages) ? $this->messages[$id] : null;
         } elseif (count($this->messages)>0) {
-        	return current($this->messages);
+            return current($this->messages);
         } else {
             $message_class = $this->getDefault('messager');
             if (class_exists($message_class)) {
@@ -401,38 +386,35 @@ class Mailer
             }
         }
     }
-    
-	/**
-	 * Set a transporter
-	 *
-	 * @param object $transporter TransportInterface
-	 *
-	 * @return self
-	 *
-	 * @throws Excpetion if the default `transporter::validate()` does not return `true`
-	 */
-    public function setTransporter(TransportInterface $transporter) 
+
+    /**
+     * Set a transporter
+     *
+     * @param \MimeMailer\TransportInterface $transporter
+     * @return self
+     * @throws \Exception if the default `transporter::validate()` does not return `true`
+     */
+    public function setTransporter(TransportInterface $transporter)
     {
         if ($transporter->validate()) {
-        	$this->transporter = $transporter;
+            $this->transporter = $transporter;
         } else {
             throw new \Exception(
                 sprintf('Transporter "%s" is not valid for current environment!', get_class($transporter))
             );
         }
-    	return $this;
+        return $this;
     }
-    
-	/**
-	 * Get the transporter
-	 *
-	 * If no message exists for now, it will be created using the default `transporter` class.
-	 *
-	 * @return string
-	 *
-	 * @throws Excpetion if the default `transporter` class doesn't exist
-	 */
-    public function getTransporter() 
+
+    /**
+     * Get the transporter
+     *
+     * If no message exists for now, it will be created using the default `transporter` class.
+     *
+     * @return string
+     * @throws \Exception if the default `transporter` class doesn't exist
+     */
+    public function getTransporter()
     {
         if (empty($this->transporter)) {
             $transport_class = $this->getDefault('transporter');
@@ -446,30 +428,28 @@ class Mailer
         }
         return $this->transporter;
     }
-    
-	/**
-	 * Set a spooler manager
-	 *
-	 * @param object $spooler SpoolInterface
-	 *
-	 * @return self
-	 */
-    public function setSpooler(SpoolInterface $spooler) 
+
+    /**
+     * Set a spooler manager
+     *
+     * @param \MimeMailer\SpoolInterface $spooler
+     * @return self
+     */
+    public function setSpooler(SpoolInterface $spooler)
     {
-    	$this->spooler = $spooler;
-    	return $this;
+        $this->spooler = $spooler;
+        return $this;
     }
-    
-	/**
-	 * Get the spooler
-	 *
-	 * If no message exists for now, it will be created using the default `spooler` class.
-	 *
-	 * @return string
-	 *
-	 * @throws Excpetion if the default `spooler` class doesn't exist
-	 */
-    public function getSpooler() 
+
+    /**
+     * Get the spooler
+     *
+     * If no message exists for now, it will be created using the default `spooler` class.
+     *
+     * @return string
+     * @throws \Exception if the default `spooler` class doesn't exist
+     */
+    public function getSpooler()
     {
         if (empty($this->spooler)) {
             $spool_class = $this->getDefault('spooler');
@@ -483,110 +463,106 @@ class Mailer
         }
         return $this->spooler;
     }
-    
-	/**
-	 * Make a dry run of the class : no mail will be sent
-	 *
-	 * @param bool $dry Activate dry run or not
-	 *
-	 * @return self
-	 */
-    public function setDryRun($dry = true) 
+
+    /**
+     * Make a dry run of the class : no mail will be sent
+     *
+     * @param bool $dry Activate dry run or not
+     * @return self
+     */
+    public function setDryRun($dry = true)
     {
-    	$this->dry_run = $dry;
-    	return $this;
+        $this->dry_run = $dry;
+        return $this;
     }
-    
-	/**
-	 * Get the dry run value
-	 *
-	 * @return bool
-	 */
-    public function getDryRun() 
+
+    /**
+     * Get the dry run value
+     *
+     * @return bool
+     */
+    public function getDryRun()
     {
-    	return (bool) $this->dry_run;
+        return (bool) $this->dry_run;
     }
-    
-	/**
-	 * Is it dry run?
-	 *
-	 * @return bool
-	 */
-    public function isDryRun() 
+
+    /**
+     * Is it dry run?
+     *
+     * @return bool
+     */
+    public function isDryRun()
     {
-    	return true===$this->dry_run;
+        return true===$this->dry_run;
     }
-    
-	/**
-	 * Activate emails spooling
-	 *
-	 * @param bool $spool Activate spool or not
-	 *
-	 * @return self
-	 */
-    public function setSpool($spool = true) 
+
+    /**
+     * Activate emails spooling
+     *
+     * @param bool $spool Activate spool or not
+     * @return self
+     */
+    public function setSpool($spool = true)
     {
-    	$this->spool = $spool;
-    	return $this;
+        $this->spool = $spool;
+        return $this;
     }
-    
-	/**
-	 * Get the spool value
-	 *
-	 * @return bool
-	 */
-    public function getSpool() 
+
+    /**
+     * Get the spool value
+     *
+     * @return bool
+     */
+    public function getSpool()
     {
-    	return (bool) $this->spool;
+        return (bool) $this->spool;
     }
-    
-	/**
-	 * Is it spooling?
-	 *
-	 * @return bool
-	 */
-    public function isSpool() 
+
+    /**
+     * Is it spooling?
+     *
+     * @return bool
+     */
+    public function isSpool()
     {
-    	return true===$this->spool;
+        return true===$this->spool;
     }
-    
-	/**
-	 * Set the spooled mails directory
-	 *
-	 * @param string $dir The directory where to create spooled mails files
-	 *
-	 * @return self
-	 */
-    public function setSpoolDirectory($dir) 
+
+    /**
+     * Set the spooled mails directory
+     *
+     * @param string $dir The directory where to create spooled mails files
+     * @return self
+     */
+    public function setSpoolDirectory($dir)
     {
-    	$this->spool_dir = $dir;
-    	return $this;
+        $this->spool_dir = $dir;
+        return $this;
     }
-    
-	/**
-	 * Get the spooled mails directory
-	 *
-	 * @return string
-	 */
-    public function getSpoolDirectory() 
+
+    /**
+     * Get the spooled mails directory
+     *
+     * @return string
+     */
+    public function getSpoolDirectory()
     {
-    	return $this->spool_dir;
+        return $this->spool_dir;
     }
-    
+
 // --------------------
 // Sending
 // --------------------
 
-	/**
-	 * Messages sender
-	 *
-	 * @param bool $return_info Do we have to return an information about sending ?
-	 *
-	 * @return bool|misc
-	 */
-	public function send($return_info = false)
-	{
-		$this->_presendInit();
+    /**
+     * Messages sender
+     *
+     * @param bool $return_info Do we have to return an information about sending ?
+     * @return bool|mixed
+     */
+    public function send($return_info = false)
+    {
+        $this->_presendInit();
 
         $msg = $this->getMessage()
             ->buildMessage()
@@ -594,8 +570,8 @@ class Mailer
 
         // Then we send one by one
         if (false===$this->dry_run) {
-			foreach ($this->getMessage()->get('to') as $set) {
-			    if (!empty($set) && is_array($set)) {
+            foreach ($this->getMessage()->get('to') as $set) {
+                if (!empty($set) && is_array($set)) {
                     foreach ($set as $name=>$mail) {
                         if (is_numeric($name)) $name = $mail;
                         if (true===$this->spool) {
@@ -623,87 +599,83 @@ class Mailer
                         }
                     }
                 }
-			}
-		} else {
-	        $this->addInfo('DryRun : no mail will be sent');
-		}
-
-		// errors ? infos ?
-        if ($this->sent_errors>0) {
-        	$msg = "Error - The message(s) can not been sent ... Check errors pile!";
-        	$this->addInfo($msg);
-        	$this->addError($msg);
+            }
         } else {
-	        $msg = "OK - The message(s) have been sent ...";
-    	    $this->addInfo($msg);
+            $this->addInfo('DryRun : no mail will be sent');
         }
 
-		// return
-	    if (true===$return_info) {
-	    	return $msg;
-	    }
+        // errors ? infos ?
+        if ($this->sent_errors>0) {
+            $msg = "Error - The message(s) can not been sent ... Check errors pile!";
+            $this->addInfo($msg);
+            $this->addError($msg);
+        } else {
+            $msg = "OK - The message(s) have been sent ...";
+            $this->addInfo($msg);
+        }
+
+        // return
+        if (true===$return_info) {
+            return $msg;
+        }
         return $this->sent_messages>0;
     }
 
-	/**
-	 * Messages spooler : prepare the whole content and write it in a file
-	 *
-	 * @param bool $return_info Do we have to return an information about sending ?
-	 *
-	 * @return misc
-	 */
-	public function spool($return_info = false)
-	{
-		$this->setSpool(true);
-		return $this->send($return_info);
-	}
-	
-	/**
-	 * Messages sender : prepare the whole content and send the e-mail
-	 *
-	 * @param string $to
-	 * @param string $subject
-	 * @param string $message
-	 * @param string $additional_headers
-	 * @param string $additional_parameters
-	 *
-	 * @return misc
-	 */
-	protected function sendMessage($to, $subject, $message, $additional_headers = '', $additional_parameters = '')
-	{
-	    return $this->getTransporter()
-	        ->transport($to, $subject, $message, $additional_headers, $additional_parameters);
-	}
+    /**
+     * Messages spooler : prepare the whole content and write it in a file
+     *
+     * @param bool $return_info Do we have to return an information about sending ?
+     * @return mixed
+     */
+    public function spool($return_info = false)
+    {
+        $this->setSpool(true);
+        return $this->send($return_info);
+    }
 
-	/**
-	 * Messages spooler : prepare the whole content and write it in a file
-	 *
-	 * @param string $to
-	 * @param string $subject
-	 * @param string $message
-	 * @param string $additional_headers
-	 * @param string $additional_parameters
-	 *
-	 * @return misc
-	 *
-	 * @throws Exception if `spool_dir` is not defined
-	 */
-	protected function spoolMessage($to, $subject, $message, $additional_headers = '', $additional_parameters = '')
-	{
-	    if (empty($this->spool_dir)) {
-	        throw new \Exception('You must define a spool directory to spool emails!');
-	    }
-		$contents = array(
-	        'to'=>$to,
-	        'subject'=>$subject,
-	        'message'=>$message,
-	        'additional_headers'=>$additional_headers,
-	        'additional_parameters'=>$additional_parameters 
-	    );
-		return $this->getSpooler()
-		    ->setSpoolDirectory($this->spool_dir)
-		    ->addMessageToSpool($this->getMessage()->getId(), $contents, false);
-	}
+    /**
+     * Messages sender : prepare the whole content and send the e-mail
+     *
+     * @param string $to
+     * @param string $subject
+     * @param string $message
+     * @param string $additional_headers
+     * @param string $additional_parameters
+     * @return mixed
+     */
+    protected function sendMessage($to, $subject, $message, $additional_headers = '', $additional_parameters = '')
+    {
+        return $this->getTransporter()
+            ->transport($to, $subject, $message, $additional_headers, $additional_parameters);
+    }
+
+    /**
+     * Messages spooler : prepare the whole content and write it in a file
+     *
+     * @param string $to
+     * @param string $subject
+     * @param string $message
+     * @param string $additional_headers
+     * @param string $additional_parameters
+     * @return mixed
+     * @throws \Exception if `spool_dir` is not defined
+     */
+    protected function spoolMessage($to, $subject, $message, $additional_headers = '', $additional_parameters = '')
+    {
+        if (empty($this->spool_dir)) {
+            throw new \Exception('You must define a spool directory to spool emails!');
+        }
+        $contents = array(
+            'to'=>$to,
+            'subject'=>$subject,
+            'message'=>$message,
+            'additional_headers'=>$additional_headers,
+            'additional_parameters'=>$additional_parameters
+        );
+        return $this->getSpooler()
+            ->setSpoolDirectory($this->spool_dir)
+            ->addMessageToSpool($this->getMessage()->getId(), $contents, false);
+    }
 
 }
 
@@ -728,9 +700,9 @@ $subject = 'The subject of this test message ...';
 $subject_iso = 'The subject of this test message with special chars : é à ...';
 
 // Initialisation of the mail
-	// standard simple mail
+// standard simple mail
 //$mail = new MimeEmail($from_name, $from, $test_adress_1, $subject, $txt_message);
-	// mail with ISO chars
+// mail with ISO chars
 $mail = new MimeEmail($from_name, $from, $test_adress_1, $subject_iso, $txt_message_iso);
 
 // Adding some emails
@@ -741,9 +713,9 @@ $mail->setCc($test_adress_3, $test_name_3);
 //$mail->setCc('yuiuy');
 
 // Loading HTML content
-	// Simple HTML content
+// Simple HTML content
 //$mail->setHtml($html_message);
-	// ISO chars HTML content
+// ISO chars HTML content
 $mail->setHtml($html_message_iso);
 
 // Attah a file
