@@ -79,11 +79,11 @@ Many methods are defined to build a message, please refer to the PHP class itsel
 
 All "persons" fields can be defined as the followings:
 
-	 ( 'my@email.address' )
-	 ( 'my@email.address', 'my name' )
-	 ( array( 'my name'=>'my@email.address' ) )
-	 ( array( 'my name'=>'my@email.address', 'another name'=>'another@email.address' ) )
-	 ( array( 'my name'=>'my@email.address', 'another@email.address' ) )
+     ( 'my@email.address' )
+     ( 'my@email.address', 'my name' )
+     ( array( 'my name'=>'my@email.address' ) )
+     ( array( 'my name'=>'my@email.address', 'another name'=>'another@email.address' ) )
+     ( array( 'my name'=>'my@email.address', 'another@email.address' ) )
 
 Finally, to send built messages, just write:
 
@@ -112,9 +112,9 @@ The latest version of this documentation is available online at <http://docs.ate
 
 >    Assets Manager
 
->    https://github.com/atelierspierrot/mime-mailer
+>    http://github.com/atelierspierrot/mime-mailer
 
->    Copyleft 2013, Pierre Cassat and contributors
+>    Copyleft 2013-2014, Pierre Cassat and contributors
 
 >    Licensed under the GPL Version 3 license.
 
