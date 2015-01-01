@@ -1,175 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>MimeMailer\Helper | </title>
-                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../classes.html">Classes</a></li>
-                            <li><a href="../namespaces.html">Namespaces</a></li>
-                        <li><a href="../interfaces.html">Interfaces</a></li>
-            <li><a href="../traits.html">Traits</a></li>
-            <li><a href="../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>MimeMailer\Helper | MIME Mailer</title>
 
-        <div id="title"></div>
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../MimeMailer.html">MimeMailer</a>\Helper</h1>
+    <body id="class" data-name="class:MimeMailer_Helper" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">MIME Mailer</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../MimeMailer.html">MimeMailer</a></li>
+    
+                <li>Helper</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Helper</h1>
+    </div>
+
+    <p>    class
     <strong>Helper</strong></p>
 
     
     
     
+    
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_mailTagger">mailTagger</a>(string $mail = &#039;&#039;, string $name = null)
-                    <p>Build a person string compliant to RFC2822</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Build a person string compliant to RFC2822</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_mailListTagger">mailListTagger</a>(array $list)
-                    <p>Build a list of person strings compliant to RFC2822</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Build a list of person strings compliant to RFC2822</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_headerTagger">headerTagger</a>(string $name = &#039;&#039;, string $value = &#039;&#039;, array $adds = array())
-                    <p>Build a mail header tag compliant to RFC2822</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Build a mail header tag compliant to RFC2822</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_listAddresses">listAddresses</a>(array $list = array(), string $type = &#039;to&#039;)
-                    <p>Build a list of name=>email pairs compliant to RFC2822</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Build a list of name=>email pairs compliant to RFC2822</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_formatText">formatText</a>(string $txt = &#039;&#039;, string $type = &#039;plain&#039;, bool $spaces = false)
-                    <p>Format a text with a special encoding</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Format a text with a special encoding</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getMimeType">getMimeType</a>(string $filename = &#039;&#039;)
-                    <p>Search the MIME type of a file</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Search the MIME type of a file</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_html2text">html2text</a>(string $str)
-                    <p>Converts HTML to plain text</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Converts HTML to plain text</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;array
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_deduplicate">deduplicate</a>(array $array)
-                    <p>De-duplicate a set of name=>email pairs to let each email just once</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>De-duplicate a set of name=>email pairs to let each email just once</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;array
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_checkPeopleArgs">checkPeopleArgs</a>()
-                    <p>Clean and build a set of name=>email pairs</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Clean and build a set of name=>email pairs</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_charAscii">charAscii</a>(string $char)
-                    <p>Returns the ASCII equivalent of a character</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the ASCII equivalent of a character</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;bool
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_isAscii">isAscii</a>(string $string)
-                    <p>ASCII validator</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>ASCII validator</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;bool
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_isEmail">isEmail</a>(string $str = &#039;&#039;)
-                    <p>Check if an email address is valid</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p>Check if an email address is valid</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_mailTagger">
-        <div class="location">at line 35</div>
-        <code>        static    public            string
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_mailTagger">
+        <div class="location">at line 48</div>
+        <code>        static            string
     <strong>mailTagger</strong>(string $mail = &#039;&#039;, string $name = null)</code>
     </h3>
     <div class="details">
-        <p>Build a person string compliant to RFC2822</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build a person string compliant to RFC2822</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$mail</td>
@@ -185,7 +223,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The generated tag</td>
@@ -197,19 +235,20 @@
                     </div>
     </div>
 
-                <h3 id="method_mailListTagger">
-        <div class="location">at line 46</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_mailListTagger">
+        <div class="location">at line 59</div>
+        <code>        static            string
     <strong>mailListTagger</strong>(array $list)</code>
     </h3>
     <div class="details">
-        <p>Build a list of person strings compliant to RFC2822</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build a list of person strings compliant to RFC2822</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$list</td>
@@ -221,7 +260,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -234,19 +273,20 @@
                     </div>
     </div>
 
-                <h3 id="method_headerTagger">
-        <div class="location">at line 69</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_headerTagger">
+        <div class="location">at line 82</div>
+        <code>        static            string
     <strong>headerTagger</strong>(string $name = &#039;&#039;, string $value = &#039;&#039;, array $adds = array())</code>
     </h3>
     <div class="details">
-        <p>Build a mail header tag compliant to RFC2822</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build a mail header tag compliant to RFC2822</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -267,7 +307,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The generated header tag string</td>
@@ -279,19 +319,20 @@
                     </div>
     </div>
 
-                <h3 id="method_listAddresses">
-        <div class="location">at line 87</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_listAddresses">
+        <div class="location">at line 100</div>
+        <code>        static            string
     <strong>listAddresses</strong>(array $list = array(), string $type = &#039;to&#039;)</code>
     </h3>
     <div class="details">
-        <p>Build a list of name=>email pairs compliant to RFC2822</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build a list of name=>email pairs compliant to RFC2822</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$list</td>
@@ -307,7 +348,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The generated list</td>
@@ -319,19 +360,20 @@
                     </div>
     </div>
 
-                <h3 id="method_formatText">
-        <div class="location">at line 106</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_formatText">
+        <div class="location">at line 119</div>
+        <code>        static            string
     <strong>formatText</strong>(string $txt = &#039;&#039;, string $type = &#039;plain&#039;, bool $spaces = false)</code>
     </h3>
     <div class="details">
-        <p>Format a text with a special encoding</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Format a text with a special encoding</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$txt</td>
@@ -352,7 +394,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The transformed text</td>
@@ -364,19 +406,20 @@
                     </div>
     </div>
 
-                <h3 id="method_getMimeType">
-        <div class="location">at line 137</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getMimeType">
+        <div class="location">at line 150</div>
+        <code>        static            string
     <strong>getMimeType</strong>(string $filename = &#039;&#039;)</code>
     </h3>
     <div class="details">
-        <p>Search the MIME type of a file</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Search the MIME type of a file</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$filename</td>
@@ -387,7 +430,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The associated MIME type</td>
@@ -399,19 +442,20 @@
                     </div>
     </div>
 
-                <h3 id="method_html2text">
-        <div class="location">at line 158</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_html2text">
+        <div class="location">at line 171</div>
+        <code>        static            string
     <strong>html2text</strong>(string $str)</code>
     </h3>
     <div class="details">
-        <p>Converts HTML to plain text</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Converts HTML to plain text</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -422,7 +466,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The associated plain text version</td>
@@ -434,19 +478,20 @@
                     </div>
     </div>
 
-                <h3 id="method_deduplicate">
-        <div class="location">at line 169</div>
-        <code>        static    public            array
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_deduplicate">
+        <div class="location">at line 182</div>
+        <code>        static            array
     <strong>deduplicate</strong>(array $array)</code>
     </h3>
     <div class="details">
-        <p>De-duplicate a set of name=>email pairs to let each email just once</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>De-duplicate a set of name=>email pairs to let each email just once</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$array</td>
@@ -458,7 +503,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>array</td>
             <td>
@@ -471,24 +516,26 @@
                     </div>
     </div>
 
-                <h3 id="method_checkPeopleArgs">
-        <div class="location">at line 205</div>
-        <code>        static    public            array
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_checkPeopleArgs">
+        <div class="location">at line 218</div>
+        <code>        static            array
     <strong>checkPeopleArgs</strong>()</code>
     </h3>
     <div class="details">
-        <p>Clean and build a set of name=>email pairs</p>
-        <p>Arguments can be writtent as :
+                    <div class="method-description">
+                                    <p>Clean and build a set of name=>email pairs</p>                    <p>Arguments can be writtent as :
 ( 'my@email.address' )
 ( 'my@email.address', 'my name' )
 ( array( 'my name'=>'my@email.address' ) )
 ( array( 'my name'=>'my@email.address', 'another name'=>'another@email.address' ) )
-( array( 'my name'=>'my@email.address', 'another@email.address' ) )</p>
-        <div class="tags">
+( array( 'my name'=>'my@email.address', 'another@email.address' ) )</p>            </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>array</td>
             <td>
@@ -501,19 +548,20 @@
                     </div>
     </div>
 
-                <h3 id="method_charAscii">
-        <div class="location">at line 243</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_charAscii">
+        <div class="location">at line 256</div>
+        <code>        static            string
     <strong>charAscii</strong>(string $char)</code>
     </h3>
     <div class="details">
-        <p>Returns the ASCII equivalent of a character</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns the ASCII equivalent of a character</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$char</td>
@@ -524,7 +572,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The ASCII valid character</td>
@@ -536,19 +584,20 @@
                     </div>
     </div>
 
-                <h3 id="method_isAscii">
-        <div class="location">at line 256</div>
-        <code>        static    public            bool
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isAscii">
+        <div class="location">at line 269</div>
+        <code>        static            bool
     <strong>isAscii</strong>(string $string)</code>
     </h3>
     <div class="details">
-        <p>ASCII validator</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>ASCII validator</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$string</td>
@@ -559,7 +608,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>bool</td>
             <td>
@@ -572,19 +621,20 @@
                     </div>
     </div>
 
-                <h3 id="method_isEmail">
-        <div class="location">at line 267</div>
-        <code>        static    public            bool
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isEmail">
+        <div class="location">at line 280</div>
+        <code>        static            bool
     <strong>isEmail</strong>(string $str = &#039;&#039;)</code>
     </h3>
     <div class="details">
-        <p>Check if an email address is valid</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Check if an email address is valid</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -595,7 +645,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>bool</td>
             <td>
@@ -608,10 +658,17 @@
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>
