@@ -4,15 +4,14 @@
     "description": "A package to send rich MIME emails.",
     "keywords": [ "MIME", "emailing" ],
     "homepage": "http://github.com/atelierspierrot/mime-mailer",
-    "license": "GPL-3.0",
+    "license": "Apache-2.0",
     "authors": [{
         "name": "Les Ateliers Pierrot & contributors",
         "email": "contact@ateliers-pierrot.fr",
         "homepage": "http://www.ateliers-pierrot.fr/"
     },{
         "name": "Pierre Cassat",
-        "email": "me@e-piwi.fr",
-        "homepage": "http://github.com/piwi"
+        "homepage": "http://e-piwi.fr/"
     }],
     "require": {
         "php": ">=5.3.0",
@@ -29,7 +28,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "1.1-dev"
         }
     }
 }
