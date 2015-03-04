@@ -1,6 +1,7 @@
 MIME Mailer
 ===========
 
+[![documentation](http://img.ateliers-pierrot-static.fr/readthe-doc.png)](http://docs.ateliers-pierrot.fr/mime-mailer/)
 A PHP package to send rich MIME emails.
 
 ## How-to
@@ -31,17 +32,21 @@ from Github.
 Then, to use the package classes, you just need to register the `MimeMailer` namespace directory
 using the [SplClassLoader](https://gist.github.com/jwage/221634) or any other custom autoloader:
 
-    require_once '.../src/SplClassLoader.php'; // if required, a copy is proposed in the package
-    $classLoader = new SplClassLoader('MimeMailer', '/path/to/package/src');
-    $classLoader->register();
+```php
+require_once '.../src/SplClassLoader.php'; // if required, a copy is proposed in the package
+$classLoader = new SplClassLoader('MimeMailer', '/path/to/package/src');
+$classLoader->register();
+```
 
 If you are a [Composer](http://getcomposer.org/) user, just add the package to your requirements
 in your `composer.json`:
 
-    "require": {
-        ...
-        "atelierspierrot/mime-mailer": "dev-master"
-    }
+```json
+"require": {
+    "your/deps": "*",
+    "atelierspierrot/mime-mailer": "dev-master"
+}
+```
 
 The namespace will be automatically added to the project Composer autoloader.
 
@@ -50,50 +55,63 @@ The namespace will be automatically added to the project Composer autoloader.
 
 To create a Mailer instance, just write:
 
-    $mailer = \MimeMailer\Mailer::getInstance();
+```php
+$mailer = \MimeMailer\Mailer::getInstance();
+```
 
 You can define a set of user options writing:
 
-    $mailer = \MimeMailer\Mailer::getInstance(array(
-        'options name' => 'option value',
-        ...
-    ));
+```php
+$mailer = \MimeMailer\Mailer::getInstance(array(
+    'options name' => 'option value',
+    //...
+));
+```
 
 The `Mailer` instance acts like a global container to build messages and send them. It handles
 a set of messages as an array. From this container, you can access to:
 
-    $mailer->getMessage() // the current message object
-    $mailer->getTransporter() // the current transporter object
-    $mailer->getSpooler() // the current spooler object
+```php
+$mailer->getMessage() // the current message object
+$mailer->getTransporter() // the current transporter object
+$mailer->getSpooler() // the current spooler object
+```
 
 To work on current message, you can write:
 
-    $mailer->getMessage() // the message will be created if none was defined
-        ->setTo(...)
-        ->setSubject(...)
-        ->setText(...)
-        ...
-        ;
+```php
+$mailer->getMessage() // the message will be created if none was defined
+    ->setTo(...)
+    ->setSubject(...)
+    ->setText(...)
+    //...
+    ;
+```
 
 Many methods are defined to build a message, please refer to the PHP class itself to learn more.
 
 All "persons" fields can be defined as the followings:
 
-     ( 'my@email.address' )
-     ( 'my@email.address', 'my name' )
-     ( array( 'my name'=>'my@email.address' ) )
-     ( array( 'my name'=>'my@email.address', 'another name'=>'another@email.address' ) )
-     ( array( 'my name'=>'my@email.address', 'another@email.address' ) )
+```php
+ ( 'my@email.address' )
+ ( 'my@email.address', 'my name' )
+ ( array( 'my name'=>'my@email.address' ) )
+ ( array( 'my name'=>'my@email.address', 'another name'=>'another@email.address' ) )
+ ( array( 'my name'=>'my@email.address', 'another@email.address' ) )
+```
 
 Finally, to send built messages, just write:
 
-    $mailer->send()
+```php
+$mailer->send()
+```
 
 Some logs are accessibles from the container with:
 
-    $mailer->getErrors()
-    $mailer->getInfos()
-
+```php
+$mailer->getErrors()
+$mailer->getInfos()
+```
 
 ## Development
 
@@ -124,4 +142,4 @@ The latest version of this documentation is available online at <http://docs.ate
 
 >    Les Ateliers Pierrot - Paris, France
 
->    <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
+>    <http://www.ateliers-pierrot.fr/> - <contact@ateliers-pierrot.fr>
