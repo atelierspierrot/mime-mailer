@@ -93,7 +93,7 @@ Please note that this package depends on the externals [PHP Patterns](http://git
 Author & License
 ----------------
 
->    Assets Manager
+>    MIME Mailer
 
 >    http://github.com/atelierspierrot/mime-mailer
 
