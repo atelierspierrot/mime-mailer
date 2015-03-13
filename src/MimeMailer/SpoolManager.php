@@ -26,7 +26,7 @@ use \Library\Helper\Directory as DirectoryHelper;
 use \Library\Helper\File as FileHelper;
 
 /**
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class SpoolManager
     implements SpoolInterface, CacheInterface

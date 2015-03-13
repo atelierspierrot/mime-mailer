@@ -25,7 +25,7 @@ namespace MimeMailer;
 /**
  * A classic cache interface
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 interface CacheInterface
 {
