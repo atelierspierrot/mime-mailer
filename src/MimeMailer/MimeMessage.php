@@ -25,8 +25,9 @@ namespace MimeMailer;
 use \Library\Converter\Html2Text;
 
 /**
- * @todo Cite all RFCs for each header field
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @TODO Cite all RFCs for each header field
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class MimeMessage
     extends AbstractMailerAware

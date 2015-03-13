@@ -31,7 +31,7 @@ bool mail ( string $to , string $subject , string $message [, string $additional
 */
 
 /**
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class MailTransport
     implements TransportInterface

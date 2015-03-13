@@ -25,7 +25,7 @@ namespace MimeMailer;
 /**
  * Extend an object to be `\MimeMailer\Mailer` aware
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractMailerAware
 {
