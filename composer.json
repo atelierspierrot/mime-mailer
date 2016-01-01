@@ -21,10 +21,16 @@
     },
     "require-dev": { 
         "sami/sami": "@stable",
+        "fabpot/php-cs-fixer": "@stable",
         "phpmd/phpmd" : "@stable"
     },
     "autoload": { 
-        "psr-0": { "MimeMailer": "src" }
+        "psr-4": { "MimeMailer\\": "src/MimeMailer/" }
+    },
+    "scripts": {
+        "build-doc": "php vendor/bin/sami.php update .sami.php",
+        "update-doc": "php vendor/bin/sami.php update .sami.php",
+        "cs-fixer": "php vendor/bin/php-cs-fixer fix -v"
     },
     "extra": {
         "branch-alias": {
