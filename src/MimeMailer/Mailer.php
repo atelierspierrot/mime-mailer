@@ -2,7 +2,7 @@
 /**
  * This file is part of the MimeMailer package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
+ * Copyright (c) 2013-2016 Pierre Cassat <me@e-piwi.fr> and contributors
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ class Mailer
     implements OptionableInterface
 {
 
-// --------------------
+    // --------------------
 // Constants
 // --------------------
     const MM_CLASSNAME = "MimeMailer package";
@@ -325,10 +325,13 @@ class Mailer
      */
     public function setRegistry($var = null, $val = null, $section = false)
     {
-        if (is_null($var)) return;
+        if (is_null($var)) {
+            return;
+        }
         if ($section) {
-            if (!isset($this->registry[$section]))
+            if (!isset($this->registry[$section])) {
                 $this->registry[$section] = array();
+            }
             $this->registry[$section][$var] = $val;
         } else {
             $this->registry[$var] = $val;
@@ -346,7 +349,9 @@ class Mailer
      */
     public function getRegistry($var = null, $section = false, $default = false)
     {
-        if (is_null($var)) return;
+        if (is_null($var)) {
+            return;
+        }
         if ($section && isset($this->registry[$section])) {
             if (isset($this->registry[$section][$var])) {
                 return $this->registry[$section][$var];
@@ -586,9 +591,11 @@ class Mailer
             foreach ($this->getMessage()->get('to') as $set) {
                 if (!empty($set) && is_array($set)) {
                     foreach ($set as $name=>$mail) {
-                        if (is_numeric($name)) $name = $mail;
+                        if (is_numeric($name)) {
+                            $name = $mail;
+                        }
                         if (true===$this->spool) {
-                            if (true===$this->spoolMessage($mail,$this->getMessage()->get('subject'),'',$msg)) {
+                            if (true===$this->spoolMessage($mail, $this->getMessage()->get('subject'), '', $msg)) {
                                 $this->addInfo(
                                     sprintf('Spooling message to send to "%s".', $mail)
                                 );
@@ -598,7 +605,7 @@ class Mailer
                                 );
                             }
                         } else {
-                            if (false===$this->sendMessage($mail,$this->getMessage()->get('subject'),'',$msg)) {
+                            if (false===$this->sendMessage($mail, $this->getMessage()->get('subject'), '', $msg)) {
                                 $this->addError(
                                     sprintf('!! - The message can not be sent to "%s"!', $mail)
                                 );
@@ -689,7 +696,6 @@ class Mailer
             ->setSpoolDirectory($this->spool_dir)
             ->addMessageToSpool($this->getMessage()->getId(), $contents, false);
     }
-
 }
 
 /* EXAMPLE */

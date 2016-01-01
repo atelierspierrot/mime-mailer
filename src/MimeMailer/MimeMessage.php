@@ -2,7 +2,7 @@
 /**
  * This file is part of the MimeMailer package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
+ * Copyright (c) 2013-2016 Pierre Cassat <me@e-piwi.fr> and contributors
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ class MimeMessage
     /**
      * @var array Set of clearing values
      */
-    static $clearings = array(
+    public static $clearings = array(
         'from'=>'',
         'to'=>array(),
         'cc'=>array(),
@@ -113,13 +113,21 @@ class MimeMessage
      * @param string $subject
      * @param string $message
      */
-    public function __construct($from_name = '', $from_mail = null, $to = null, $subject = null, $message = null) 
+    public function __construct($from_name = '', $from_mail = null, $to = null, $subject = null, $message = null)
     {
         $this->_init();
-        if (!is_null($from_mail)) $this->setFrom($from_mail, $from_name);
-        if (!is_null($to)) $this->setTo($to);
-        if (!is_null($subject)) $this->setSubject($subject);
-        if (!is_null($message)) $this->setText($message);
+        if (!is_null($from_mail)) {
+            $this->setFrom($from_mail, $from_name);
+        }
+        if (!is_null($to)) {
+            $this->setTo($to);
+        }
+        if (!is_null($subject)) {
+            $this->setSubject($subject);
+        }
+        if (!is_null($message)) {
+            $this->setText($message);
+        }
     }
     
     /**
@@ -173,7 +181,7 @@ class MimeMessage
      * @param mixed $val
      * @return self
      */
-    public function set($name, $val) 
+    public function set($name, $val)
     {
         if (property_exists($this, $name)) {
             $this->{$name} = $val;
@@ -187,7 +195,7 @@ class MimeMessage
      * @param string $name
      * @return mixed
      */
-    public function get($name) 
+    public function get($name)
     {
         return property_exists($this, $name) ? $this->{$name} : null;
     }
@@ -219,7 +227,7 @@ class MimeMessage
      * @param string $name
      * @return string
      */
-    public function getFormated($name) 
+    public function getFormated($name)
     {
         $field_value = $this->get($name);
         return is_array($field_value) ? Helper::mailListTagger($field_value) : $field_value;
@@ -230,7 +238,7 @@ class MimeMessage
      *
      * @return string
      */
-    public function getId() 
+    public function getId()
     {
         return $this->id;
     }
@@ -244,7 +252,7 @@ class MimeMessage
      * @return self
      * @see \MimeMailer\MimeEmail::checkPeopleArgs
      */
-    public function setFrom($mail = '', $name = null, $reply = true) 
+    public function setFrom($mail = '', $name = null, $reply = true)
     {
         $mail = trim($mail);
         if (strlen($mail) && Helper::isEmail($mail)) {
@@ -252,7 +260,7 @@ class MimeMessage
             $this->getMailer()->setRegistry('Return-Path', '<'.$mail.'>', 'headers');
             $this->getMailer()->setRegistry('X-Sender', $mail, 'headers');
             if ($reply) {
-                $this->setReplyTo($mail,$name);
+                $this->setReplyTo($mail, $name);
             }
         }
         return $this;
@@ -266,7 +274,7 @@ class MimeMessage
      * @return self
      * @see \MimeMailer\MimeEmail::checkPeopleArgs
      */
-    public function setTo($mail = '', $name = null) 
+    public function setTo($mail = '', $name = null)
     {
         $this->to = Helper::deduplicate(
             array_merge($this->to, call_user_func_array(array('\MimeMailer\Helper', 'checkPeopleArgs'), func_get_args()))
@@ -282,7 +290,7 @@ class MimeMessage
      * @return self
      * @see \MimeMailer\MimeEmail::checkPeopleArgs
      */
-    public function setCc($mail = '', $name = null) 
+    public function setCc($mail = '', $name = null)
     {
         $this->cc = Helper::deduplicate(
             array_merge($this->cc, call_user_func_array(array('\MimeMailer\Helper', 'checkPeopleArgs'), func_get_args()))
@@ -298,7 +306,7 @@ class MimeMessage
      * @return self
      * @see \MimeMailer\MimeEmail::checkPeopleArgs
      */
-    public function setBcc($mail = '', $name = null) 
+    public function setBcc($mail = '', $name = null)
     {
         $this->bcc = Helper::deduplicate(
             array_merge($this->bcc, call_user_func_array(array('\MimeMailer\Helper', 'checkPeopleArgs'), func_get_args()))
@@ -313,13 +321,13 @@ class MimeMessage
      * @param bool $clear Clear a set content first ? (default is to append a content)
      * @return self
      */
-    public function setAttachment($file = '', $clear = false) 
+    public function setAttachment($file = '', $clear = false)
     {
         if (true===$clear) {
             $this->clear('text');
         }
         if (is_array($file)) {
-            foreach($file as $_f) {
+            foreach ($file as $_f) {
                 if (file_exists($_f)) {
                     $this->attachment[] = $_f;
                 }
@@ -339,7 +347,7 @@ class MimeMessage
      * @param bool $clear Clear a set content first ? (default is to append a content)
      * @return self
      */
-    public function setSubject($subject = '', $clear = false) 
+    public function setSubject($subject = '', $clear = false)
     {
         if (true===$clear) {
             $this->clear('subject');
@@ -365,7 +373,7 @@ class MimeMessage
         if ('auto'==$text) {
             if (!empty($this->html)) {
                 $html_content = preg_replace("/.*<body[^>]*>|<\/body>.*/si", "", $this->html);
-                $this->text .= Helper::formatText( Helper::html2text($html_content) );
+                $this->text .= Helper::formatText(Helper::html2text($html_content));
             }
         } else {
             $this->text .= Helper::formatText($text);
@@ -380,7 +388,7 @@ class MimeMessage
      * @param bool $clear Clear a set content first ? (default is to append a content)
      * @return self
      */
-    public function setHtml($html = '', $clear = false) 
+    public function setHtml($html = '', $clear = false)
     {
         if (true===$clear) {
             $this->clear('text');
@@ -396,7 +404,7 @@ class MimeMessage
      * @param string/bool $name The name to show for the email address if there is just one
      * @return self
      */
-    public function setReplyTo($mail = '', $name = null) 
+    public function setReplyTo($mail = '', $name = null)
     {
         if (strlen($mail) && Helper::isEmail($mail)) {
             if (!empty($name)) {
@@ -416,7 +424,7 @@ class MimeMessage
      * @param string/bool $name The name to show for the email address if there is just one
      * @return self
      */
-    public function setFollowupTo($mail = '', $name = null) 
+    public function setFollowupTo($mail = '', $name = null)
     {
         if (strlen($mail) && Helper::isEmail($mail)) {
             if (!empty($name)) {
@@ -436,7 +444,7 @@ class MimeMessage
      * @param string/bool $name The name to show for the email address if there is just one
      * @return self
      */
-    public function setErrorsTo($mail = '', $name = null) 
+    public function setErrorsTo($mail = '', $name = null)
     {
         if (strlen($mail) && Helper::isEmail($mail)) {
             if (!empty($name)) {
@@ -456,7 +464,7 @@ class MimeMessage
      * @param string/bool $name The name to show for the email address if there is just one
      * @return self
      */
-    public function setDispositionNotificationTo($mail = '', $name = null) 
+    public function setDispositionNotificationTo($mail = '', $name = null)
     {
         if (strlen($mail) && Helper::isEmail($mail)) {
             if (!empty($name)) {
@@ -476,7 +484,7 @@ class MimeMessage
      * @param string/bool $name
      * @return self
      */
-    public function setAbuseReportsTo($mail = '', $name = null) 
+    public function setAbuseReportsTo($mail = '', $name = null)
     {
         if (strlen($mail) && Helper::isEmail($mail)) {
             if (!empty($name)) {
@@ -498,7 +506,7 @@ class MimeMessage
      * @param string/bool $name The name to show for the email address if there is just one
      * @return self
      */
-    public function setReturnReceiptTo($mail = '', $name = null) 
+    public function setReturnReceiptTo($mail = '', $name = null)
     {
         if (strlen($mail) && Helper::isEmail($mail)) {
             if (!empty($name)) {
@@ -516,7 +524,7 @@ class MimeMessage
      *
      * @return string
      */
-    public function getMessage() 
+    public function getMessage()
     {
         return $this->message;
     }
@@ -538,7 +546,7 @@ class MimeMessage
         if (is_array($this->from) && count($this->from)>0) {
             $from = null;
             while (is_null($from)==true) {
-                foreach($this->from as $n=>$m) {
+                foreach ($this->from as $n=>$m) {
                     $from = array($n=>$m);
                 }
             }
@@ -568,7 +576,7 @@ class MimeMessage
         // Headers
         foreach ($this->getMailer()->getRegistry('headers') as $entry=>$v_entry) {
             if (isset($v_entry)) {
-                $this->message .= Helper::headerTagger($entry,$v_entry).Mailer::$LINE_ENDING;
+                $this->message .= Helper::headerTagger($entry, $v_entry).Mailer::$LINE_ENDING;
             }
         }
         $bound = 0;
@@ -577,19 +585,19 @@ class MimeMessage
         $type = $this->getMailer()->getRegistry('message_type');
         if (!is_null($type) && $type!='text/plain') {
             $bound = 1;
-            $this->message .= Helper::headerTagger("Content-Type",$type,
+            $this->message .= Helper::headerTagger("Content-Type", $type,
                 array('boundary'=>$this->getMailer()->getRegistry('boundary'))).Mailer::$LINE_ENDING;
             $this->message .= "This is a multi-part message in MIME format.".Mailer::$LINE_ENDING;
             if ($type == 'multipart/mixed') {
                 $this->message .= Mailer::$LINE_ENDING.Mailer::BOUNDARY_OPENER.$this->getMailer()->getRegistry('boundary').Mailer::$LINE_ENDING;
-                $this->message .= Helper::headerTagger("Content-Type","multipart/alternative",
+                $this->message .= Helper::headerTagger("Content-Type", "multipart/alternative",
                     array('boundary'=>$this->getMailer()->getRegistry('boundary_ctt'))).Mailer::$LINE_ENDING;
             }
         }
 
         // Text content
         if (strlen($this->text)/* && !strlen($this->html)*/) {
-            if ($bound)  {
+            if ($bound) {
                 $this->message .= Mailer::$LINE_ENDING.Mailer::BOUNDARY_OPENER.$this->getMailer()->getRegistry('boundary_ctt').Mailer::$LINE_ENDING;
                 //ne prend pas les css en compte
 //                $this->message .= Helper::headerTagger("Content-Transfer-Encoding", "7bit").Mailer::$LINE_ENDING;
@@ -628,12 +636,12 @@ class MimeMessage
                     $file = fread(fopen($this->attachment[$i], "r"), filesize($this->attachment[$i]));
                     $filename = basename($this->attachment[$i]);
                     $this->message .= Mailer::$LINE_ENDING.Mailer::BOUNDARY_OPENER.$this->getMailer()->getRegistry('boundary').Mailer::$LINE_ENDING;
-                    $this->message .= Helper::headerTagger("Content-Type",Helper::getMimeType($filename),
-                        array('name'=>$filename,'charset'=>$this->getMailer()->getOption('charset'))).Mailer::$LINE_ENDING;
-                    $this->message .= Helper::headerTagger("Content-Transfer-Encoding","base64").Mailer::$LINE_ENDING;
-                    $this->message .= Helper::headerTagger("Content-Disposition",'attachment',
+                    $this->message .= Helper::headerTagger("Content-Type", Helper::getMimeType($filename),
+                        array('name'=>$filename, 'charset'=>$this->getMailer()->getOption('charset'))).Mailer::$LINE_ENDING;
+                    $this->message .= Helper::headerTagger("Content-Transfer-Encoding", "base64").Mailer::$LINE_ENDING;
+                    $this->message .= Helper::headerTagger("Content-Disposition", 'attachment',
                         array('filename'=>$filename)).Mailer::$LINE_ENDING;
-                    $this->message .= Helper::headerTagger("Content-Description",$filename).Mailer::$LINE_ENDING;
+                    $this->message .= Helper::headerTagger("Content-Description", $filename).Mailer::$LINE_ENDING;
                     $this->message .= Mailer::$LINE_ENDING.chunk_split(base64_encode($file));
                     $file = $filename = "";
                 }
@@ -666,7 +674,6 @@ class MimeMessage
         $this->body = str_replace($search, $replace, $this->body);
         return $this->body;
     }
-
 }
 
 // Endfile

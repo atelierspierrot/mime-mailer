@@ -111,14 +111,14 @@ class DemoController
                 return $this->posted[$name][$subname];
             }
             if (empty($default) && isset($this->fields[$name]) && isset($this->fields[$name]['fields'][$subname]) && isset($this->fields[$name]['fields'][$subname]['default'])) {
-                return $this->fields[$name]['fields'][$subname]['default'];            
+                return $this->fields[$name]['fields'][$subname]['default'];
             }
         } else {
             if (isset($this->posted[$name]) && !empty($this->posted[$name])) {
                 return $this->posted[$name];
             }
             if (empty($default) && isset($this->fields[$name]) && isset($this->fields[$name]['default'])) {
-                return $this->fields[$name]['default'];            
+                return $this->fields[$name]['default'];
             }
         }
         return $default;
@@ -126,7 +126,9 @@ class DemoController
 
     public function treat(&$email = array())
     {
-        if (empty($this->posted)) return null;
+        if (empty($this->posted)) {
+            return null;
+        }
         $ok_email = false;
 
         // MimeEmail object
@@ -143,7 +145,7 @@ class DemoController
         } else {
             $email[] = 'No sender defined!';
             return false;
-        }        
+        }
                 
         // recipients
         $posted_recips = $this->isPosted('recipients');
@@ -153,13 +155,13 @@ class DemoController
         } else {
             $email[] = 'No classic recipient defined!';
             return false;
-        }        
+        }
         if (!empty($posted_recips['cc'])) {
             $sender->getMessage()->setCc($posted_recips['cc']);
-        }        
+        }
         if (!empty($posted_recips['bcc'])) {
             $sender->getMessage()->setBcc($posted_recips['bcc']);
-        }        
+        }
 
         // contents
         $posted_contents = $this->isPosted('contents');
@@ -169,13 +171,13 @@ class DemoController
         } else {
             $email[] = 'No subject defined!';
             return false;
-        }        
+        }
         if (!empty($posted_contents['plain_text'])) {
             $sender->getMessage()->setText($posted_contents['plain_text']);
-        }        
+        }
         if (!empty($posted_contents['html'])) {
             $sender->getMessage()->setHtml($posted_contents['html']);
-        }        
+        }
 
         // attachments
         $posted_attachments = $this->isPosted('attachments');
@@ -189,16 +191,16 @@ class DemoController
 //var_export($posted_options);
         if (!empty($posted_options['reply'])) {
             $sender->getMessage()->setReplyTo($posted_options['reply']);
-        }        
+        }
         if (!empty($posted_options['follow'])) {
             $sender->getMessage()->setFollowupTo($posted_options['follow']);
-        }        
+        }
         if (!empty($posted_options['errors'])) {
             $sender->getMessage()->setErrorsTo($posted_options['errors']);
-        }        
+        }
         if (!empty($posted_options['notify'])) {
             $sender->getMessage()->setDispositionNotificationTo($posted_options['notify']);
-        }        
+        }
 
         // sending / spooling
         $ok_email = $sender->send(1);
@@ -211,7 +213,6 @@ class DemoController
 
         return $ok_email;
     }
-
 }
 
 // Endfile

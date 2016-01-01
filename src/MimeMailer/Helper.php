@@ -2,7 +2,7 @@
 /**
  * This file is part of the MimeMailer package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
+ * Copyright (c) 2013-2016 Pierre Cassat <me@e-piwi.fr> and contributors
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ use \Validator\EmailValidator;
 class Helper
 {
 
-// --------------------
+    // --------------------
 // RFC 2822 builder
 // --------------------
 
@@ -47,7 +47,7 @@ class Helper
      */
     public static function mailTagger($mail = '', $name = null)
     {
-        return( (!is_int($name) ? "\"".$name."\" <" : '').$mail.(!is_int($name) ? ">" : '') );
+        return((!is_int($name) ? "\"".$name."\" <" : '').$mail.(!is_int($name) ? ">" : ''));
     }
 
     /**
@@ -61,10 +61,10 @@ class Helper
         $str = '';
         foreach ($list as $name=>$mail) {
             if (is_string($mail)) {
-                $str .= self::mailTagger($mail,$name).Mailer::$ADDERSSES_SEPARATOR;
+                $str .= self::mailTagger($mail, $name).Mailer::$ADDERSSES_SEPARATOR;
             } elseif (is_array($mail)) {
                 foreach ($mail as $subname=>$submail) {
-                    $str .= self::mailTagger($submail,$subname).Mailer::$ADDERSSES_SEPARATOR;
+                    $str .= self::mailTagger($submail, $subname).Mailer::$ADDERSSES_SEPARATOR;
                 }
             }
         }
@@ -83,7 +83,7 @@ class Helper
     {
         $str = $name.': '.$value;
         if (count($adds)) {
-            foreach($adds as $n=>$v) {
+            foreach ($adds as $n=>$v) {
                 $str .= Mailer::$HEADERS_SEPARATOR.($n=='boundary' ? "\n\t" : '').$n."=\"".$v."\"";
             }
         }
@@ -99,7 +99,9 @@ class Helper
      */
     public static function listAddresses($list = array(), $type = 'to')
     {
-        if (empty($list)) return;
+        if (empty($list)) {
+            return;
+        }
         $str = ucfirst(strtolower($type)).': '.self::mailListTagger($list);
         return(trim($str, Mailer::$ADDERSSES_SEPARATOR).Mailer::$LINE_ENDING);
     }
@@ -118,11 +120,15 @@ class Helper
      */
     public static function formatText($txt = '', $type = 'plain', $spaces = false)
     {
-        switch($type) {
+        switch ($type) {
             case 'ascii' :
                 $_txt = '';
-                if ($spaces==true) $txt = str_replace(' ', '_', $txt);
-                for($i=0; $i<strlen($txt);$i++) $_txt .= self::charAscii($txt[$i]);
+                if ($spaces==true) {
+                    $txt = str_replace(' ', '_', $txt);
+                }
+                for ($i=0; $i<strlen($txt);$i++) {
+                    $_txt .= self::charAscii($txt[$i]);
+                }
                 $txt = $_txt;
                 break;
             default : break;
@@ -136,7 +142,9 @@ class Helper
             if (strlen($_line)>$limit) {
                 $_line = wordwrap($_line, $limit, Mailer::$LINE_ENDING);
             }
-            if (strlen($_line)) $formated .= $_line.Mailer::$LINE_ENDING;
+            if (strlen($_line)) {
+                $formated .= $_line.Mailer::$LINE_ENDING;
+            }
         }
         return $formated;
     }
@@ -181,7 +189,9 @@ class Helper
      */
     public static function deduplicate($array)
     {
-        if (empty($array)) return $array;
+        if (empty($array)) {
+            return $array;
+        }
         $known = array();
         foreach ($array as $_index=>$entry) {
             if (is_array($entry)) {
@@ -218,7 +228,9 @@ class Helper
     public static function checkPeopleArgs()
     {
         $args = func_get_args();
-        if (empty($args)) return array();
+        if (empty($args)) {
+            return array();
+        }
 
         // 1 only email
         if (count($args)==1 && is_string($args[0]) && self::isEmail($args[0])) {
@@ -235,9 +247,11 @@ class Helper
         }
 
         // a set of name=>email pairs
-        if (count($args)==1) $args = $args[0];
+        if (count($args)==1) {
+            $args = $args[0];
+        }
         $result=array();
-        foreach($args as $name=>$email) {
+        foreach ($args as $name=>$email) {
             if (is_string($name) && true===self::isEmail($email)) {
                 $result[] = array( $name=>$email );
             } elseif (is_numeric($name) && true===self::isEmail($email)) {
@@ -255,7 +269,9 @@ class Helper
      */
     public static function charAscii($char)
     {
-        if (self::isAscii($char)) return $char;
+        if (self::isAscii($char)) {
+            return $char;
+        }
         $char = htmlentities($char);
         return $char;
     }
@@ -268,7 +284,7 @@ class Helper
      */
     public static function isAscii($string)
     {
-        return !strlen(preg_replace(',[\x09\x0A\x0D\x20-\x7E],sS','', $string));
+        return !strlen(preg_replace(',[\x09\x0A\x0D\x20-\x7E],sS', '', $string));
     }
 
     /**
@@ -282,7 +298,6 @@ class Helper
         $v = new EmailValidator;
         return $v->validate($str);
     }
-
 }
 
 // Endfile

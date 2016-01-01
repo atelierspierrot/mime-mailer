@@ -97,7 +97,7 @@ Author & License
 
 >    http://github.com/atelierspierrot/mime-mailer
 
->    Copyright (c) 2013-2015 Pierre Cassat and contributors
+>    Copyright (c) 2013-2016 Pierre Cassat and contributors
 
 >    Licensed under the Apache Version 2.0 license.
 
